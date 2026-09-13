@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WinNUT.App.ViewModels"
+        xmlns:m="using:WinNUT.App.Models"
+        xmlns:loc="using:WinNUT.App.Localization"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="620" d:DesignHeight="520"
+        Width="620" Height="520"
+        Background="{DynamicResource WindowBgBrush}"
+        Icon="avares://WinNUT/Assets/Icons/WinNut.ico"
+        x:Class="WinNUT.App.Views.ListVarWindow"
+        x:DataType="vm:ListVarViewModel"
+        Title="{loc:Loc ListVarTitle}">
+
+    <Design.DataContext>
+        <vm:ListVarViewModel />
+    </Design.DataContext>
+
+    <Grid RowDefinitions="*,Auto" Margin="20" RowSpacing="14">
+        <Grid Grid.Row="0" ColumnDefinitions="1.1*,1.4*" ColumnSpacing="14">
+            <Border Grid.Column="0" Classes="card" Padding="8">
+                <TreeView ItemsSource="{Binding Roots}" SelectedItem="{Binding SelectedNode}" Background="Transparent">
+                    <TreeView.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding Children}" DataType="m:VarTreeNode">
+                            <TextBlock Text="{Binding Segment}" Padding="2" />
+                        </TreeDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+            </Border>
+
+            <Border Grid.Column="1" Classes="card">
+                <StackPanel Spacing="14">
+                    <StackPanel Spacing="2">
+                        <TextBlock Text="{loc:Loc ListVarName}" Classes="field-label" />
+                        <TextBlock Text="{Binding NameText}" FontWeight="Medium" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel Spacing="2">
+                        <TextBlock Text="{loc:Loc ListVarValue}" Classes="field-label" />
+                        <TextBlock Text="{Binding ValueText}" FontWeight="Medium" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel Spacing="2">
+                        <TextBlock Text="{loc:Loc ListVarDescription}" Classes="field-label" />
+                        <TextBlock Text="{Binding DescText}" TextWrapping="Wrap" Classes="subtitle" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Classes="secondary" Content="{loc:Loc ListVarReload}" Command="{Binding ReloadCommand}" />
+            <Button Classes="secondary" Content="{loc:Loc ListVarCopy}" Command="{Binding CopyToClipboardCommand}" />
+            <Button Classes="primary" Content="{loc:Loc ListVarSave}" Command="{Binding SaveToFileCommand}" />
+        </StackPanel>
+    </Grid>
+
+</Window>

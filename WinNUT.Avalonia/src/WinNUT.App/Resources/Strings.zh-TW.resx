@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="MenuConnect" xml:space="preserve"><value>連線</value></data>
+  <data name="MenuDisconnect" xml:space="preserve"><value>中斷連線</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>設定...</value></data>
+  <data name="MenuVariables" xml:space="preserve"><value>UPS 變數...</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>關於...</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>離開</value></data>
+  <data name="MenuCheckUpdates" xml:space="preserve"><value>檢查更新...</value></data>
+
+  <data name="StatusReconnecting" xml:space="preserve"><value>正在重新連線</value></data>
+  <data name="StatusNotConnected" xml:space="preserve"><value>未連線</value></data>
+  <data name="StatusConnected" xml:space="preserve"><value>已連線</value></data>
+  <data name="StatusOnLine" xml:space="preserve"><value>由市電供電</value></data>
+  <data name="StatusOnBattery" xml:space="preserve"><value>由電池供電 ({0}%)</value></data>
+  <data name="StatusLowBattery" xml:space="preserve"><value>電池電量過低</value></data>
+  <data name="StatusBatteryOk" xml:space="preserve"><value>電池正常</value></data>
+  <data name="StatusUnknownUps" xml:space="preserve"><value>未知的 UPS 名稱</value></data>
+  <data name="StatusLostConnect" xml:space="preserve"><value>中斷與 {0}:{1} 的連線</value></data>
+  <data name="StatusInvalidLogin" xml:space="preserve"><value>錯誤的登入資訊 (帳號或密碼)</value></data>
+  <data name="StatusExitSleep" xml:space="preserve"><value>從睡眠喚醒 Windows 後重新啟動 WinNutCPlus。</value></data>
+  <data name="StatusGoToSleep" xml:space="preserve"><value>Windows 待機時，WinNutCPlus 將中斷連線。</value></data>
+
+  <data name="ButtonConnect" xml:space="preserve"><value>連線</value></data>
+  <data name="ButtonDisconnect" xml:space="preserve"><value>中斷連線</value></data>
+  <data name="ButtonPreferences" xml:space="preserve"><value>設定...</value></data>
+  <data name="ButtonVariables" xml:space="preserve"><value>UPS 變數...</value></data>
+  <data name="ButtonAbout" xml:space="preserve"><value>關於...</value></data>
+
+  <data name="TabConnection" xml:space="preserve"><value>連線</value></data>
+  <data name="TabCalibration" xml:space="preserve"><value>校正</value></data>
+  <data name="TabMiscellaneous" xml:space="preserve"><value>其他</value></data>
+  <data name="TabShutdown" xml:space="preserve"><value>停機選項</value></data>
+  <data name="TabUpdate" xml:space="preserve"><value>更新</value></data>
+  <data name="ButtonOk" xml:space="preserve"><value>確定</value></data>
+  <data name="ButtonCancel" xml:space="preserve"><value>取消</value></data>
+  <data name="ButtonApplyChanges" xml:space="preserve"><value>套用</value></data>
+
+  <data name="ShutdownWindowTitle" xml:space="preserve"><value>正在進行停機程序</value></data>
+  <data name="ShutdownGraceButton" xml:space="preserve"><value>延遲停機</value></data>
+  <data name="ShutdownImmediateButton" xml:space="preserve"><value>立刻停機</value></data>
+
+  <data name="MainSectionLiveReadings" xml:space="preserve"><value>即時數據</value></data>
+  <data name="MainLabelManufacturer" xml:space="preserve"><value>製造商</value></data>
+  <data name="MainLabelModel" xml:space="preserve"><value>型號</value></data>
+  <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>電池續航時間</value></data>
+  <data name="MainShowWindow" xml:space="preserve"><value>顯示 WinNutCPlus</value></data>
+  <data name="GaugeInputV" xml:space="preserve"><value>輸入電壓</value></data>
+  <data name="GaugeInputHz" xml:space="preserve"><value>輸入頻率</value></data>
+  <data name="GaugeOutputV" xml:space="preserve"><value>輸出電壓</value></data>
+  <data name="GaugeBattery" xml:space="preserve"><value>電池</value></data>
+  <data name="GaugeLoadPower" xml:space="preserve"><value>負載 / 功率</value></data>
+  <data name="GaugeBatteryV" xml:space="preserve"><value>電池電壓</value></data>
+
+  <data name="FieldNutHost" xml:space="preserve"><value>NUT 伺服器位址</value></data>
+  <data name="FieldNutPort" xml:space="preserve"><value>NUT 伺服器埠號</value></data>
+  <data name="FieldUpsName" xml:space="preserve"><value>UPS 名稱</value></data>
+  <data name="FieldPollingInterval" xml:space="preserve"><value>輪詢間隔時間</value></data>
+  <data name="PollingSeconds" xml:space="preserve"><value>秒</value></data>
+  <data name="LoginCredentialsHint" xml:space="preserve"><value>NUT 伺服器的登入資訊 (若不需要請留空)</value></data>
+  <data name="FieldLogin" xml:space="preserve"><value>登入帳號</value></data>
+  <data name="FieldPassword" xml:space="preserve"><value>密碼</value></data>
+  <data name="FieldAutoReconnect" xml:space="preserve"><value>重新建立連線</value></data>
+
+  <data name="FieldNominalFrequency" xml:space="preserve"><value>供電頻率</value></data>
+  <data name="LabelMin" xml:space="preserve"><value>最低</value></data>
+  <data name="LabelMax" xml:space="preserve"><value>最高</value></data>
+  <data name="FieldInputVoltage" xml:space="preserve"><value>輸入電壓</value></data>
+  <data name="FieldInputFrequency" xml:space="preserve"><value>輸入頻率</value></data>
+  <data name="FieldOutputVoltage" xml:space="preserve"><value>輸出電壓</value></data>
+  <data name="FieldBatteryVoltage" xml:space="preserve"><value>電池電壓</value></data>
+
+  <data name="FieldMinimizeToTray" xml:space="preserve"><value>最小化至系統匣</value></data>
+  <data name="FieldStartMinimized" xml:space="preserve"><value>啟動時最小化</value></data>
+  <data name="FieldCloseToTray" xml:space="preserve"><value>關閉至系統匣</value></data>
+  <data name="FieldStartWithWindows" xml:space="preserve"><value>Windows 開機後自動啟動此應用程式</value></data>
+  <data name="FieldCreateLogFile" xml:space="preserve"><value>建立日誌檔案</value></data>
+  <data name="FieldLogLevel" xml:space="preserve"><value>日誌等級</value></data>
+
+  <data name="FieldBattLimitLoad" xml:space="preserve"><value>若電池電量低於百分比數值時停機</value></data>
+  <data name="FieldBattLimitTime" xml:space="preserve"><value>若備援時間低於秒數時關機</value></data>
+  <data name="FieldImmediateStop" xml:space="preserve"><value>立刻執行停機動作</value></data>
+  <data name="FieldRespectFsd" xml:space="preserve"><value>接收 FSD (強制關機) 訊號後關機</value></data>
+  <data name="FieldStopType" xml:space="preserve"><value>停機方式</value></data>
+  <data name="FieldDelayToShutdown" xml:space="preserve"><value>關機前延遲 (秒)</value></data>
+  <data name="FieldAllowExtendedTime" xml:space="preserve"><value>允許的延長停機時間</value></data>
+  <data name="FieldGraceTime" xml:space="preserve"><value>關機前延遲時間 (秒)</value></data>
+
+  <data name="FieldLanguage" xml:space="preserve"><value>語言</value></data>
+  <data name="LanguageSystemDefault" xml:space="preserve"><value>系統預設</value></data>
+  <data name="FieldLanguageRestartNote" xml:space="preserve"><value>重新啟動 WinNutCPlus 以完全套用語言變更。</value></data>
+  <data name="FieldTheme" xml:space="preserve"><value>主題</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>跟隨系統</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>淺色</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>深色</value></data>
+  <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>在啟動時檢查更新</value></data>
+  <data name="FieldUpdateDelay" xml:space="preserve"><value>每次檢查更新間隔</value></data>
+  <data name="FieldUpdateBranch" xml:space="preserve"><value>版本</value></data>
+
+  <data name="AboutDescription" xml:space="preserve"><value>用於 Network UPS Tools (NUT) 的 Windows 用戶端。</value></data>
+  <data name="AboutCopyright1" xml:space="preserve"><value>Copyright © 2019-2021 Gawindx (Decaux Nicolas)</value></data>
+  <data name="AboutCopyright2" xml:space="preserve"><value>Copyright © 2019-2024 NUTDotNet 貢獻者</value></data>
+  <data name="AboutCopyright3" xml:space="preserve"><value>Copyright © 2026 RikoDEV</value></data>
+
+  <data name="ListVarTitle" xml:space="preserve"><value>UPS 變數</value></data>
+  <data name="ListVarName" xml:space="preserve"><value>名稱：</value></data>
+  <data name="ListVarValue" xml:space="preserve"><value>值：</value></data>
+  <data name="ListVarDescription" xml:space="preserve"><value>描述：</value></data>
+  <data name="ListVarReload" xml:space="preserve"><value>重新載入</value></data>
+  <data name="ListVarCopy" xml:space="preserve"><value>複製</value></data>
+  <data name="ListVarSave" xml:space="preserve"><value>儲存...</value></data>
+
+  <data name="CrashTitle" xml:space="preserve"><value>WinNutCPlus — 未預期的錯誤</value></data>
+  <data name="CrashMessage" xml:space="preserve"><value>WinNutCPlus 發生未預期的錯誤。您可以產生一份報告，在回報問題時附上。</value></data>
+  <data name="CrashCopyButton" xml:space="preserve"><value>將報告複製到剪貼簿</value></data>
+  <data name="CrashSaveButton" xml:space="preserve"><value>儲存報告並開啟資料夾</value></data>
+  <data name="CrashCloseButton" xml:space="preserve"><value>關閉 WinNutCPlus</value></data>
+
+  <data name="ShutdownWarningMessage" xml:space="preserve"><value>UPS 電池電量嚴重不足。WinNutCPlus 即將關閉此電腦。</value></data>
+  <data name="ShutdownStatusFormat" xml:space="preserve"><value>電池：{0}% — 預估備援時間：{1}</value></data>
+
+  <data name="UpdateAvailableTitle" xml:space="preserve"><value>有可用更新</value></data>
+  <data name="UpdateButtonLabel" xml:space="preserve"><value>更新</value></data>
+  <data name="UpdateCloseButton" xml:space="preserve"><value>關閉</value></data>
+  <data name="UpdateVisitPage" xml:space="preserve"><value>查看頁面</value></data>
+  <data name="UpdateDownloading" xml:space="preserve"><value>正在下載更新...</value></data>
+  <data name="UpdateNoneAvailable" xml:space="preserve"><value>您已是最新版本</value></data>
+  <data name="UpdateCheckFailed" xml:space="preserve"><value>更新檢查失敗</value></data>
+</root>

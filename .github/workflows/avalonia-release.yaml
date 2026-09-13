@@ -1,0 +1,68 @@
+# Build, package (Inno Setup), and release the new Avalonia-based WinNUT.
+#
+# Uses a distinct tag prefix (avalonia-v*) so this never collides with the legacy WinForms
+# release workflow (build-release.yaml), which triggers on plain v* tags.
+#
+# The published installer .exe is what WinNUT.Core.Update.UpdateChecker looks for as the
+# release asset (it selects the first attached asset whose name ends in ".exe").
+
+name: avalonia-release
+
+on:
+  push:
+    tags: "avalonia-v*"
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: get-ver
+        run: ../.github/workflows/get-ver.ps1 ${{ github.ref }}
+        working-directory: WinNUT.Avalonia
+        shell: pwsh
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore, build, test
+        working-directory: WinNUT.Avalonia
+        run: |
+          dotnet restore WinNUT.Avalonia.slnx
+          dotnet build WinNUT.Avalonia.slnx --no-restore -c Release
+          dotnet test WinNUT.Core.Tests/WinNUT.Core.Tests.csproj --no-build -c Release
+
+      - name: Publish self-contained win-x64
+        working-directory: WinNUT.Avalonia
+        run: >
+          dotnet publish src/WinNUT.App/WinNUT.App.csproj
+          -c Release -r win-x64 --self-contained true
+          -p:PublishSingleFile=false
+          -p:Version=${{ steps.get-ver.outputs.VER }}
+          -o publish/win-x64
+
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
+
+      - name: Compile installer
+        working-directory: WinNUT.Avalonia/installer
+        run: >
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
+          /DMyAppVersion=${{ steps.get-ver.outputs.VER }}
+          winnut.iss
+        shell: pwsh
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          prerelease: ${{ steps.get-ver.outputs.ISPRERELEASE == 'true' }}
+          fail_on_unmatched_files: true
+          generate_release_notes: true
+          files: |
+            WinNUT.Avalonia/installer/Output/WinNUT-Setup-${{ steps.get-ver.outputs.VER }}.exe

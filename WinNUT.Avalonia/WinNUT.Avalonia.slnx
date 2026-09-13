@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WinNUT.App/WinNUT.App.csproj" />
+    <Project Path="src/WinNUT.Core/WinNUT.Core.csproj" />
+  </Folder>
+  <Project Path="WinNUT.Core.Tests/WinNUT.Core.Tests.csproj" />
+</Solution>

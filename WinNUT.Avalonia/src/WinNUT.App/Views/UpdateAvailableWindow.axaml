@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WinNUT.App.ViewModels"
+        xmlns:loc="using:WinNUT.App.Localization"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="460" d:DesignHeight="380"
+        Width="460" Height="380"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource WindowBgBrush}"
+        Icon="avares://WinNUT/Assets/Icons/WinNut.ico"
+        x:Class="WinNUT.App.Views.UpdateAvailableWindow"
+        x:DataType="vm:UpdateAvailableViewModel"
+        Title="{loc:Loc UpdateAvailableTitle}">
+
+    <Design.DataContext>
+        <vm:UpdateAvailableViewModel />
+    </Design.DataContext>
+
+    <Border Classes="card" Margin="16">
+        <Grid RowDefinitions="Auto,Auto,*,Auto,Auto" RowSpacing="12">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10">
+                <TextBlock Text="&#xE896;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="20"
+                           Foreground="{DynamicResource AccentBrush}" VerticalAlignment="Center" />
+                <TextBlock Text="{loc:Loc UpdateAvailableTitle}" Classes="h2" VerticalAlignment="Center" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Text="{Binding ReleaseName}" Classes="subtitle" TextWrapping="Wrap" />
+
+            <Border Grid.Row="2" BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="1" CornerRadius="8">
+                <TextBox Text="{Binding ChangeLog}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap"
+                         Background="Transparent" BorderThickness="0" />
+            </Border>
+
+            <Grid Grid.Row="3" IsVisible="{Binding IsDownloading}">
+                <ProgressBar Minimum="0" Maximum="100" Value="{Binding ProgressPercent}" Height="20" CornerRadius="10" />
+                <TextBlock Text="{Binding ProgressText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11" />
+            </Grid>
+            <TextBlock Grid.Row="3" Text="{loc:Loc UpdateDownloading}" IsVisible="{Binding IsDownloading}" Classes="subtitle" Margin="0,-6,0,0" />
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+                <Button Name="VisitPageButton" Classes="secondary" Content="{loc:Loc UpdateVisitPage}" />
+                <Button Classes="primary" Content="{loc:Loc UpdateButtonLabel}" Command="{Binding UpdateCommand}" IsEnabled="{Binding !IsDownloading}" />
+            </StackPanel>
+        </Grid>
+    </Border>
+
+</Window>

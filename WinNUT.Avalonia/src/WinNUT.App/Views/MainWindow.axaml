@@ -1,0 +1,91 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WinNUT.App.ViewModels"
+        xmlns:c="using:WinNUT.App.Controls"
+        xmlns:loc="using:WinNUT.App.Localization"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="760" d:DesignHeight="600"
+        Width="760" Height="600" MinWidth="620" MinHeight="480"
+        x:Class="WinNUT.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Background="{DynamicResource WindowBgBrush}"
+        TransparencyLevelHint="None"
+        Title="WinNutCPlus">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel Margin="20">
+
+        <!-- Header -->
+        <Grid DockPanel.Dock="Top" ColumnDefinitions="Auto,*,Auto" Margin="0,0,0,16">
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                <TextBlock Text="WinNutCPlus" Classes="h1" VerticalAlignment="Center" />
+                <Border Classes="pill" Background="{DynamicResource ControlBgBrush}" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <Ellipse Width="8" Height="8" Fill="{Binding StatusPillBrush}" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding StatusText}" FontSize="12.5" FontWeight="Medium"
+                                   Foreground="{Binding StatusPillBrush}" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="4">
+                <Button Classes="icon" Content="&#xE768;" Command="{Binding ConnectCommand}" IsVisible="{Binding !IsConnected}"
+                        ToolTip.Tip="{loc:Loc ButtonConnect}" />
+                <Button Classes="icon" Content="&#xE71A;" Command="{Binding DisconnectCommand}" IsVisible="{Binding IsConnected}"
+                        ToolTip.Tip="{loc:Loc ButtonDisconnect}" />
+                <Button Classes="icon" Content="&#xE8FD;" Command="{Binding OpenListVarCommand}"
+                        ToolTip.Tip="{loc:Loc ButtonVariables}" />
+                <Button Classes="icon" Content="&#xE895;" Command="{Binding CheckForUpdatesCommand}"
+                        ToolTip.Tip="{loc:Loc MenuCheckUpdates}" />
+                <Button Classes="icon" Content="&#xE713;" Command="{Binding OpenPreferencesCommand}"
+                        ToolTip.Tip="{loc:Loc ButtonPreferences}" />
+                <Button Classes="icon" Content="&#xE946;" Command="{Binding OpenAboutCommand}"
+                        ToolTip.Tip="{loc:Loc ButtonAbout}" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer info strip -->
+        <Border DockPanel.Dock="Bottom" Classes="card" Margin="0,16,0,0">
+            <UniformGrid Columns="3">
+                <StackPanel Spacing="2">
+                    <TextBlock Text="{loc:Loc MainLabelManufacturer}" Classes="field-label" />
+                    <TextBlock Text="{Binding Manufacturer}" FontWeight="Medium" />
+                </StackPanel>
+                <StackPanel Spacing="2">
+                    <TextBlock Text="{loc:Loc MainLabelModel}" Classes="field-label" />
+                    <TextBlock Text="{Binding Model}" FontWeight="Medium" />
+                </StackPanel>
+                <StackPanel Spacing="2">
+                    <TextBlock Text="{loc:Loc MainLabelBatteryRuntime}" Classes="field-label" />
+                    <TextBlock Text="{Binding BatteryRuntimeText}" FontWeight="Medium" />
+                </StackPanel>
+            </UniformGrid>
+        </Border>
+
+        <!-- Gauges card -->
+        <Border Classes="card">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" Text="{loc:Loc MainSectionLiveReadings}" Classes="h2" Margin="0,0,0,8" />
+                <UniformGrid Columns="3" Rows="2">
+                    <c:UpsGaugeControl Label="{loc:Loc GaugeInputV}" Value="{Binding InputVoltage}" Unit="V"
+                                        MinValue="{Binding InVMin}" MaxValue="{Binding InVMax}" />
+                    <c:UpsGaugeControl Label="{loc:Loc GaugeInputHz}" Value="{Binding InputFrequency}" Unit="Hz"
+                                        MinValue="{Binding InFMin}" MaxValue="{Binding InFMax}" />
+                    <c:UpsGaugeControl Label="{loc:Loc GaugeOutputV}" Value="{Binding OutputVoltage}" Unit="V"
+                                        MinValue="{Binding OutVMin}" MaxValue="{Binding OutVMax}" />
+                    <c:UpsGaugeControl Label="{loc:Loc GaugeBattery}" Value="{Binding BatteryCharge}" Unit="%"
+                                        MinValue="0" MaxValue="100" />
+                    <c:UpsGaugeControl Label="{loc:Loc GaugeLoadPower}" Value="{Binding Load}" Value2="{Binding OutputPower}"
+                                        Unit="%" Unit2="W" MinValue="0" MaxValue="100" />
+                    <c:UpsGaugeControl Label="{loc:Loc GaugeBatteryV}" Value="{Binding BatteryVoltage}" Unit="V"
+                                        MinValue="{Binding BattVMin}" MaxValue="{Binding BattVMax}" />
+                </UniformGrid>
+            </DockPanel>
+        </Border>
+    </DockPanel>
+
+</Window>

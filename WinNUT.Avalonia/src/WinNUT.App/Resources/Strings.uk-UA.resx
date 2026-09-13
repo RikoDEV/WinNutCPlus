@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="MenuConnect" xml:space="preserve"><value>Підключитися</value></data>
+  <data name="MenuDisconnect" xml:space="preserve"><value>Відключитись</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>Налаштування...</value></data>
+  <data name="MenuVariables" xml:space="preserve"><value>Змінні ДБЖ...</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>Про додаток...</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>Вихід</value></data>
+  <data name="MenuCheckUpdates" xml:space="preserve"><value>Перевірити оновлення...</value></data>
+
+  <data name="StatusReconnecting" xml:space="preserve"><value>Перепідключення в процесі</value></data>
+  <data name="StatusNotConnected" xml:space="preserve"><value>Не підключено</value></data>
+  <data name="StatusConnected" xml:space="preserve"><value>Підключено</value></data>
+  <data name="StatusOnLine" xml:space="preserve"><value>Від мережі</value></data>
+  <data name="StatusOnBattery" xml:space="preserve"><value>Від батареї ({0}%)</value></data>
+  <data name="StatusLowBattery" xml:space="preserve"><value>Низький заряд батареї</value></data>
+  <data name="StatusBatteryOk" xml:space="preserve"><value>Батарея ОК</value></data>
+  <data name="StatusUnknownUps" xml:space="preserve"><value>Назва ДБЖ невідома</value></data>
+  <data name="StatusLostConnect" xml:space="preserve"><value>Втрата підключення до {0}:{1}</value></data>
+  <data name="StatusInvalidLogin" xml:space="preserve"><value>Невірні дані авторизації (логін або пароль)</value></data>
+  <data name="StatusExitSleep" xml:space="preserve"><value>Перезапуск WinNutCPlus після пробудження Windows.</value></data>
+  <data name="StatusGoToSleep" xml:space="preserve"><value>Очікування Windows. WinNutCPlus вимкнеться.</value></data>
+
+  <data name="ButtonConnect" xml:space="preserve"><value>Підключитися</value></data>
+  <data name="ButtonDisconnect" xml:space="preserve"><value>Відключитись</value></data>
+  <data name="ButtonPreferences" xml:space="preserve"><value>Налаштування...</value></data>
+  <data name="ButtonVariables" xml:space="preserve"><value>Змінні ДБЖ...</value></data>
+  <data name="ButtonAbout" xml:space="preserve"><value>Про додаток...</value></data>
+
+  <data name="TabConnection" xml:space="preserve"><value>З'єднання</value></data>
+  <data name="TabCalibration" xml:space="preserve"><value>Калібровка</value></data>
+  <data name="TabMiscellaneous" xml:space="preserve"><value>Інше</value></data>
+  <data name="TabShutdown" xml:space="preserve"><value>Налаштування вимкнення</value></data>
+  <data name="TabUpdate" xml:space="preserve"><value>Оновити</value></data>
+  <data name="ButtonOk" xml:space="preserve"><value>Ок</value></data>
+  <data name="ButtonCancel" xml:space="preserve"><value>Скасувати</value></data>
+  <data name="ButtonApplyChanges" xml:space="preserve"><value>Застосувати</value></data>
+
+  <data name="ShutdownWindowTitle" xml:space="preserve"><value>Триває вимкнення</value></data>
+  <data name="ShutdownGraceButton" xml:space="preserve"><value>Час затримки</value></data>
+  <data name="ShutdownImmediateButton" xml:space="preserve"><value>Негайне вимкнення</value></data>
+
+  <data name="MainSectionLiveReadings" xml:space="preserve"><value>Поточні показники</value></data>
+  <data name="MainLabelManufacturer" xml:space="preserve"><value>Виробник</value></data>
+  <data name="MainLabelModel" xml:space="preserve"><value>Модель</value></data>
+  <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Час роботи від батареї</value></data>
+  <data name="MainShowWindow" xml:space="preserve"><value>Показати WinNutCPlus</value></data>
+  <data name="GaugeInputV" xml:space="preserve"><value>Вхід В</value></data>
+  <data name="GaugeInputHz" xml:space="preserve"><value>Вхід Гц</value></data>
+  <data name="GaugeOutputV" xml:space="preserve"><value>Вихід В</value></data>
+  <data name="GaugeBattery" xml:space="preserve"><value>Батарея</value></data>
+  <data name="GaugeLoadPower" xml:space="preserve"><value>Навантаження / Потужність</value></data>
+  <data name="GaugeBatteryV" xml:space="preserve"><value>Батарея В</value></data>
+
+  <data name="FieldNutHost" xml:space="preserve"><value>Сервер NUT</value></data>
+  <data name="FieldNutPort" xml:space="preserve"><value>Порт NUT</value></data>
+  <data name="FieldUpsName" xml:space="preserve"><value>Ім'я ДБЖ</value></data>
+  <data name="FieldPollingInterval" xml:space="preserve"><value>Інтервал запитів</value></data>
+  <data name="PollingSeconds" xml:space="preserve"><value>Секунди</value></data>
+  <data name="LoginCredentialsHint" xml:space="preserve"><value>Реквізити для підключення до сервера NUT (залиште порожніми якщо не потрібні)</value></data>
+  <data name="FieldLogin" xml:space="preserve"><value>Логін</value></data>
+  <data name="FieldPassword" xml:space="preserve"><value>Пароль</value></data>
+  <data name="FieldAutoReconnect" xml:space="preserve"><value>Перепідключатися</value></data>
+
+  <data name="FieldNominalFrequency" xml:space="preserve"><value>Частота мережі</value></data>
+  <data name="LabelMin" xml:space="preserve"><value>Мінімум</value></data>
+  <data name="LabelMax" xml:space="preserve"><value>Максимум</value></data>
+  <data name="FieldInputVoltage" xml:space="preserve"><value>Вхідна напруга</value></data>
+  <data name="FieldInputFrequency" xml:space="preserve"><value>Вхідна частота</value></data>
+  <data name="FieldOutputVoltage" xml:space="preserve"><value>Вихідна напруга</value></data>
+  <data name="FieldBatteryVoltage" xml:space="preserve"><value>Напруга батареї</value></data>
+
+  <data name="FieldMinimizeToTray" xml:space="preserve"><value>Згортати у трей</value></data>
+  <data name="FieldStartMinimized" xml:space="preserve"><value>Запускати згорнутим</value></data>
+  <data name="FieldCloseToTray" xml:space="preserve"><value>Закрити у трей</value></data>
+  <data name="FieldStartWithWindows" xml:space="preserve"><value>Запускати з Windows</value></data>
+  <data name="FieldCreateLogFile" xml:space="preserve"><value>Створити файл логу</value></data>
+  <data name="FieldLogLevel" xml:space="preserve"><value>Рівень ведення журналу</value></data>
+
+  <data name="FieldBattLimitLoad" xml:space="preserve"><value>Вимкнення, якщо заряд менший</value></data>
+  <data name="FieldBattLimitTime" xml:space="preserve"><value>Вимкнення якщо час менший (сек)</value></data>
+  <data name="FieldImmediateStop" xml:space="preserve"><value>Негайне вимкнення</value></data>
+  <data name="FieldRespectFsd" xml:space="preserve"><value>Вимкнення за запитом FSD сервера NUT</value></data>
+  <data name="FieldStopType" xml:space="preserve"><value>Тип вимкнення</value></data>
+  <data name="FieldDelayToShutdown" xml:space="preserve"><value>Затримка вимкнення (сек)</value></data>
+  <data name="FieldAllowExtendedTime" xml:space="preserve"><value>Додати додатковий час при вимкненні</value></data>
+  <data name="FieldGraceTime" xml:space="preserve"><value>Додаткова затримка вимкнення (сек)</value></data>
+
+  <data name="FieldLanguage" xml:space="preserve"><value>Мова</value></data>
+  <data name="LanguageSystemDefault" xml:space="preserve"><value>Системна</value></data>
+  <data name="FieldLanguageRestartNote" xml:space="preserve"><value>Перезапустіть WinNutCPlus, щоб повністю застосувати зміну мови.</value></data>
+  <data name="FieldTheme" xml:space="preserve"><value>Тема</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Системна</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Світла</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Темна</value></data>
+  <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>Перевіряти при запуску</value></data>
+  <data name="FieldUpdateDelay" xml:space="preserve"><value>Затримка між перевірками</value></data>
+  <data name="FieldUpdateBranch" xml:space="preserve"><value>Стабільна чи налагоджувальна версія</value></data>
+
+  <data name="AboutDescription" xml:space="preserve"><value>Windows-клієнт для Network UPS Tools (NUT).</value></data>
+  <data name="AboutCopyright1" xml:space="preserve"><value>Copyright © 2019-2021 Gawindx (Decaux Nicolas)</value></data>
+  <data name="AboutCopyright2" xml:space="preserve"><value>Copyright © 2019-2024 учасники проєкту NUTDotNet</value></data>
+  <data name="AboutCopyright3" xml:space="preserve"><value>Copyright © 2026 RikoDEV</value></data>
+
+  <data name="ListVarTitle" xml:space="preserve"><value>Змінні ДБЖ</value></data>
+  <data name="ListVarName" xml:space="preserve"><value>Назва:</value></data>
+  <data name="ListVarValue" xml:space="preserve"><value>Значення:</value></data>
+  <data name="ListVarDescription" xml:space="preserve"><value>Опис:</value></data>
+  <data name="ListVarReload" xml:space="preserve"><value>Оновити</value></data>
+  <data name="ListVarCopy" xml:space="preserve"><value>Копіювати</value></data>
+  <data name="ListVarSave" xml:space="preserve"><value>Зберегти...</value></data>
+
+  <data name="CrashTitle" xml:space="preserve"><value>WinNutCPlus — Неочікувана помилка</value></data>
+  <data name="CrashMessage" xml:space="preserve"><value>У роботі WinNutCPlus сталася неочікувана помилка. Ви можете створити звіт, щоб додати його при повідомленні про проблему.</value></data>
+  <data name="CrashCopyButton" xml:space="preserve"><value>Скопіювати звіт у буфер обміну</value></data>
+  <data name="CrashSaveButton" xml:space="preserve"><value>Зберегти звіт і відкрити теку</value></data>
+  <data name="CrashCloseButton" xml:space="preserve"><value>Закрити WinNutCPlus</value></data>
+
+  <data name="ShutdownWarningMessage" xml:space="preserve"><value>Заряд батареї ДБЖ критично низький. WinNutCPlus незабаром вимкне цей комп'ютер.</value></data>
+  <data name="ShutdownStatusFormat" xml:space="preserve"><value>Батарея: {0}% — Оцінний час роботи: {1}</value></data>
+
+  <data name="UpdateAvailableTitle" xml:space="preserve"><value>Доступне оновлення</value></data>
+  <data name="UpdateButtonLabel" xml:space="preserve"><value>Оновити</value></data>
+  <data name="UpdateCloseButton" xml:space="preserve"><value>Закрити</value></data>
+  <data name="UpdateVisitPage" xml:space="preserve"><value>Відкрити сторінку</value></data>
+  <data name="UpdateDownloading" xml:space="preserve"><value>Завантаження оновлення...</value></data>
+  <data name="UpdateNoneAvailable" xml:space="preserve"><value>У вас встановлена остання версія</value></data>
+  <data name="UpdateCheckFailed" xml:space="preserve"><value>Не вдалося перевірити оновлення</value></data>
+</root>

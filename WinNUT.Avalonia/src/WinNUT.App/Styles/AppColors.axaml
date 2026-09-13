@@ -1,0 +1,48 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="WindowBg">#F4F5F7</Color>
+            <Color x:Key="SurfaceBg">#FFFFFF</Color>
+            <Color x:Key="SurfaceBorder">#E4E6EB</Color>
+            <Color x:Key="TextPrimary">#111827</Color>
+            <Color x:Key="TextSecondary">#6B7280</Color>
+            <Color x:Key="NavSelectedBg">#EEF2FF</Color>
+            <Color x:Key="ControlBg">#F4F5F7</Color>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="WindowBg">#17181C</Color>
+            <Color x:Key="SurfaceBg">#212226</Color>
+            <Color x:Key="SurfaceBorder">#33353B</Color>
+            <Color x:Key="TextPrimary">#F2F3F5</Color>
+            <Color x:Key="TextSecondary">#9AA0A8</Color>
+            <Color x:Key="NavSelectedBg">#2A2D40</Color>
+            <Color x:Key="ControlBg">#2A2B30</Color>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <!-- Theme-invariant accent/status colors -->
+    <Color x:Key="Accent">#4F7CFF</Color>
+    <Color x:Key="AccentHover">#3E68F0</Color>
+    <Color x:Key="StatusOk">#22C55E</Color>
+    <Color x:Key="StatusWarn">#F59E0B</Color>
+    <Color x:Key="StatusBad">#EF4444</Color>
+    <Color x:Key="StatusNeutral">#8B93A1</Color>
+
+    <SolidColorBrush x:Key="WindowBgBrush" Color="{DynamicResource WindowBg}" />
+    <SolidColorBrush x:Key="SurfaceBgBrush" Color="{DynamicResource SurfaceBg}" />
+    <SolidColorBrush x:Key="SurfaceBorderBrush" Color="{DynamicResource SurfaceBorder}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{DynamicResource TextPrimary}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{DynamicResource TextSecondary}" />
+    <SolidColorBrush x:Key="NavSelectedBgBrush" Color="{DynamicResource NavSelectedBg}" />
+    <SolidColorBrush x:Key="ControlBgBrush" Color="{DynamicResource ControlBg}" />
+
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource AccentHover}" />
+    <SolidColorBrush x:Key="StatusOkBrush" Color="{StaticResource StatusOk}" />
+    <SolidColorBrush x:Key="StatusWarnBrush" Color="{StaticResource StatusWarn}" />
+    <SolidColorBrush x:Key="StatusBadBrush" Color="{StaticResource StatusBad}" />
+    <SolidColorBrush x:Key="StatusNeutralBrush" Color="{StaticResource StatusNeutral}" />
+
+</ResourceDictionary>

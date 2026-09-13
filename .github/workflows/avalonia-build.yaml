@@ -1,0 +1,47 @@
+# Build and test the new Avalonia-based WinNUT (WinNUT.Avalonia/), independent of the legacy
+# WinForms build workflows (build-debug.yaml/build-release.yaml), which are scoped to *.vb/*.vbproj
+# and won't fire on changes here.
+
+name: avalonia-build
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'WinNUT.Avalonia/**'
+  push:
+    branches: [main, dev-*]
+    paths:
+      - 'WinNUT.Avalonia/**'
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: WinNUT.Avalonia
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore WinNUT.Avalonia.slnx
+
+      - name: Build
+        run: dotnet build WinNUT.Avalonia.slnx --no-restore -c Release
+
+      - name: Test
+        run: dotnet test WinNUT.Core.Tests/WinNUT.Core.Tests.csproj --no-build -c Release --logger "trx;LogFileName=test-results.trx"
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: WinNUT.Avalonia/WinNUT.Core.Tests/TestResults/test-results.trx
+          if-no-files-found: warn

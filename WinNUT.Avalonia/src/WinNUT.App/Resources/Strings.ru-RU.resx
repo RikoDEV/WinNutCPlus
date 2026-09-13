@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="MenuConnect" xml:space="preserve"><value>Подключиться</value></data>
+  <data name="MenuDisconnect" xml:space="preserve"><value>Отключиться</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>Настройки...</value></data>
+  <data name="MenuVariables" xml:space="preserve"><value>Переменные ИБП...</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>О программе...</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>Выход</value></data>
+  <data name="MenuCheckUpdates" xml:space="preserve"><value>Проверить обновления...</value></data>
+
+  <data name="StatusReconnecting" xml:space="preserve"><value>Переподключение в процессе</value></data>
+  <data name="StatusNotConnected" xml:space="preserve"><value>Не подключено</value></data>
+  <data name="StatusConnected" xml:space="preserve"><value>Подключено</value></data>
+  <data name="StatusOnLine" xml:space="preserve"><value>От сети</value></data>
+  <data name="StatusOnBattery" xml:space="preserve"><value>От батареи ({0}%)</value></data>
+  <data name="StatusLowBattery" xml:space="preserve"><value>Низкий заряд батареи</value></data>
+  <data name="StatusBatteryOk" xml:space="preserve"><value>Батарея ОК</value></data>
+  <data name="StatusUnknownUps" xml:space="preserve"><value>Название ИБП неизвестно</value></data>
+  <data name="StatusLostConnect" xml:space="preserve"><value>Потеря подключения к {0}:{1}</value></data>
+  <data name="StatusInvalidLogin" xml:space="preserve"><value>Неправильные данные авторизации (логин или пароль)</value></data>
+  <data name="StatusExitSleep" xml:space="preserve"><value>Перезапуск WinNutCPlus после выхода из Windows.</value></data>
+  <data name="StatusGoToSleep" xml:space="preserve"><value>Ожидание Windows. WinNutCPlus отключится.</value></data>
+
+  <data name="ButtonConnect" xml:space="preserve"><value>Подключиться</value></data>
+  <data name="ButtonDisconnect" xml:space="preserve"><value>Отключиться</value></data>
+  <data name="ButtonPreferences" xml:space="preserve"><value>Настройки...</value></data>
+  <data name="ButtonVariables" xml:space="preserve"><value>Переменные ИБП...</value></data>
+  <data name="ButtonAbout" xml:space="preserve"><value>О программе...</value></data>
+
+  <data name="TabConnection" xml:space="preserve"><value>Соединение</value></data>
+  <data name="TabCalibration" xml:space="preserve"><value>Калибровка</value></data>
+  <data name="TabMiscellaneous" xml:space="preserve"><value>Прочее</value></data>
+  <data name="TabShutdown" xml:space="preserve"><value>Настройка отключения</value></data>
+  <data name="TabUpdate" xml:space="preserve"><value>Обновить</value></data>
+  <data name="ButtonOk" xml:space="preserve"><value>Ок</value></data>
+  <data name="ButtonCancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="ButtonApplyChanges" xml:space="preserve"><value>Применить</value></data>
+
+  <data name="ShutdownWindowTitle" xml:space="preserve"><value>Отключение в процессе</value></data>
+  <data name="ShutdownGraceButton" xml:space="preserve"><value>Время задержки</value></data>
+  <data name="ShutdownImmediateButton" xml:space="preserve"><value>Немедленное выключение</value></data>
+
+  <data name="MainSectionLiveReadings" xml:space="preserve"><value>Текущие показания</value></data>
+  <data name="MainLabelManufacturer" xml:space="preserve"><value>Производитель</value></data>
+  <data name="MainLabelModel" xml:space="preserve"><value>Модель</value></data>
+  <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Время работы от батареи</value></data>
+  <data name="MainShowWindow" xml:space="preserve"><value>Показать WinNutCPlus</value></data>
+  <data name="GaugeInputV" xml:space="preserve"><value>Вход В</value></data>
+  <data name="GaugeInputHz" xml:space="preserve"><value>Вход Гц</value></data>
+  <data name="GaugeOutputV" xml:space="preserve"><value>Выход В</value></data>
+  <data name="GaugeBattery" xml:space="preserve"><value>Батарея</value></data>
+  <data name="GaugeLoadPower" xml:space="preserve"><value>Нагрузка / Мощность</value></data>
+  <data name="GaugeBatteryV" xml:space="preserve"><value>Батарея В</value></data>
+
+  <data name="FieldNutHost" xml:space="preserve"><value>Сервер NUT</value></data>
+  <data name="FieldNutPort" xml:space="preserve"><value>Порт NUT</value></data>
+  <data name="FieldUpsName" xml:space="preserve"><value>Имя ИБП</value></data>
+  <data name="FieldPollingInterval" xml:space="preserve"><value>Интервал запросов</value></data>
+  <data name="PollingSeconds" xml:space="preserve"><value>Секунды</value></data>
+  <data name="LoginCredentialsHint" xml:space="preserve"><value>Реквизиты для подключения к серверу NUT (оставьте пустыми если не требуются)</value></data>
+  <data name="FieldLogin" xml:space="preserve"><value>Логин</value></data>
+  <data name="FieldPassword" xml:space="preserve"><value>Пароль</value></data>
+  <data name="FieldAutoReconnect" xml:space="preserve"><value>Переподключаться</value></data>
+
+  <data name="FieldNominalFrequency" xml:space="preserve"><value>Частота сети</value></data>
+  <data name="LabelMin" xml:space="preserve"><value>Минимум</value></data>
+  <data name="LabelMax" xml:space="preserve"><value>Максимум</value></data>
+  <data name="FieldInputVoltage" xml:space="preserve"><value>Входное напряжение</value></data>
+  <data name="FieldInputFrequency" xml:space="preserve"><value>Входная частота</value></data>
+  <data name="FieldOutputVoltage" xml:space="preserve"><value>Выходное напряжение</value></data>
+  <data name="FieldBatteryVoltage" xml:space="preserve"><value>Напряжение батареи</value></data>
+
+  <data name="FieldMinimizeToTray" xml:space="preserve"><value>Сворачивать в трей</value></data>
+  <data name="FieldStartMinimized" xml:space="preserve"><value>Запускать свёрнутым</value></data>
+  <data name="FieldCloseToTray" xml:space="preserve"><value>Закрыть в трей</value></data>
+  <data name="FieldStartWithWindows" xml:space="preserve"><value>Запускать с Windows</value></data>
+  <data name="FieldCreateLogFile" xml:space="preserve"><value>Создать файл лога</value></data>
+  <data name="FieldLogLevel" xml:space="preserve"><value>Уровень логирования</value></data>
+
+  <data name="FieldBattLimitLoad" xml:space="preserve"><value>Выключение если заряд меньше</value></data>
+  <data name="FieldBattLimitTime" xml:space="preserve"><value>Выключение если время меньше (сек)</value></data>
+  <data name="FieldImmediateStop" xml:space="preserve"><value>Немедленное отключение</value></data>
+  <data name="FieldRespectFsd" xml:space="preserve"><value>Выключение по запросу FSD сервера NUT</value></data>
+  <data name="FieldStopType" xml:space="preserve"><value>Тип отключения</value></data>
+  <data name="FieldDelayToShutdown" xml:space="preserve"><value>Задержка выключения (сек)</value></data>
+  <data name="FieldAllowExtendedTime" xml:space="preserve"><value>Добавить дополнительное время при выключении</value></data>
+  <data name="FieldGraceTime" xml:space="preserve"><value>Дополнительная задержка выключения (сек)</value></data>
+
+  <data name="FieldLanguage" xml:space="preserve"><value>Язык</value></data>
+  <data name="LanguageSystemDefault" xml:space="preserve"><value>Системный</value></data>
+  <data name="FieldLanguageRestartNote" xml:space="preserve"><value>Перезапустите WinNutCPlus, чтобы полностью применить смену языка.</value></data>
+  <data name="FieldTheme" xml:space="preserve"><value>Тема</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Системная</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Светлая</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Тёмная</value></data>
+  <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>Проверять при запуске</value></data>
+  <data name="FieldUpdateDelay" xml:space="preserve"><value>Задержка между проверками</value></data>
+  <data name="FieldUpdateBranch" xml:space="preserve"><value>Стабильная или отладочная версия</value></data>
+
+  <data name="AboutDescription" xml:space="preserve"><value>Windows-клиент для Network UPS Tools (NUT).</value></data>
+  <data name="AboutCopyright1" xml:space="preserve"><value>Copyright © 2019-2021 Gawindx (Decaux Nicolas)</value></data>
+  <data name="AboutCopyright2" xml:space="preserve"><value>Copyright © 2019-2024 участники проекта NUTDotNet</value></data>
+  <data name="AboutCopyright3" xml:space="preserve"><value>Copyright © 2026 RikoDEV</value></data>
+
+  <data name="ListVarTitle" xml:space="preserve"><value>Переменные ИБП</value></data>
+  <data name="ListVarName" xml:space="preserve"><value>Название:</value></data>
+  <data name="ListVarValue" xml:space="preserve"><value>Значение:</value></data>
+  <data name="ListVarDescription" xml:space="preserve"><value>Описание:</value></data>
+  <data name="ListVarReload" xml:space="preserve"><value>Обновить</value></data>
+  <data name="ListVarCopy" xml:space="preserve"><value>Копировать</value></data>
+  <data name="ListVarSave" xml:space="preserve"><value>Сохранить...</value></data>
+
+  <data name="CrashTitle" xml:space="preserve"><value>WinNutCPlus — Непредвиденная ошибка</value></data>
+  <data name="CrashMessage" xml:space="preserve"><value>В работе WinNutCPlus произошла непредвиденная ошибка. Вы можете создать отчёт, чтобы приложить его при сообщении о проблеме.</value></data>
+  <data name="CrashCopyButton" xml:space="preserve"><value>Скопировать отчёт в буфер обмена</value></data>
+  <data name="CrashSaveButton" xml:space="preserve"><value>Сохранить отчёт и открыть папку</value></data>
+  <data name="CrashCloseButton" xml:space="preserve"><value>Закрыть WinNutCPlus</value></data>
+
+  <data name="ShutdownWarningMessage" xml:space="preserve"><value>Заряд батареи ИБП критически низкий. WinNutCPlus скоро выключит этот компьютер.</value></data>
+  <data name="ShutdownStatusFormat" xml:space="preserve"><value>Батарея: {0}% — Расчётное время работы: {1}</value></data>
+
+  <data name="UpdateAvailableTitle" xml:space="preserve"><value>Доступно обновление</value></data>
+  <data name="UpdateButtonLabel" xml:space="preserve"><value>Обновить</value></data>
+  <data name="UpdateCloseButton" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="UpdateVisitPage" xml:space="preserve"><value>Открыть страницу</value></data>
+  <data name="UpdateDownloading" xml:space="preserve"><value>Загрузка обновления...</value></data>
+  <data name="UpdateNoneAvailable" xml:space="preserve"><value>У вас установлена последняя версия</value></data>
+  <data name="UpdateCheckFailed" xml:space="preserve"><value>Не удалось проверить обновления</value></data>
+</root>

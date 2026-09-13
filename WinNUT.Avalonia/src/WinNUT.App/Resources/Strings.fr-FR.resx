@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="MenuConnect" xml:space="preserve"><value>Connecter</value></data>
+  <data name="MenuDisconnect" xml:space="preserve"><value>Déconnecter</value></data>
+  <data name="MenuSettings" xml:space="preserve"><value>Réglages...</value></data>
+  <data name="MenuVariables" xml:space="preserve"><value>Variable de l'UPS...</value></data>
+  <data name="MenuAbout" xml:space="preserve"><value>A Propos...</value></data>
+  <data name="MenuExit" xml:space="preserve"><value>Quitter</value></data>
+  <data name="MenuCheckUpdates" xml:space="preserve"><value>Vérifier les mises à jour...</value></data>
+
+  <data name="StatusReconnecting" xml:space="preserve"><value>Reconnexion en cours</value></data>
+  <data name="StatusNotConnected" xml:space="preserve"><value>Non connecté</value></data>
+  <data name="StatusConnected" xml:space="preserve"><value>Connecté</value></data>
+  <data name="StatusOnLine" xml:space="preserve"><value>Sur Secteur</value></data>
+  <data name="StatusOnBattery" xml:space="preserve"><value>Sur Batterie ({0}%)</value></data>
+  <data name="StatusLowBattery" xml:space="preserve"><value>Batterie Basse</value></data>
+  <data name="StatusBatteryOk" xml:space="preserve"><value>Batterie OK</value></data>
+  <data name="StatusUnknownUps" xml:space="preserve"><value>Nom UPS Inconnu</value></data>
+  <data name="StatusLostConnect" xml:space="preserve"><value>Connexion perdue à {0}:{1}</value></data>
+  <data name="StatusInvalidLogin" xml:space="preserve"><value>ID de connexion incorrect (nom d'utilisateur ou mot de passe)</value></data>
+  <data name="StatusExitSleep" xml:space="preserve"><value>Redémarrage de WinNutCPlus après la sortie de veille de Windows.</value></data>
+  <data name="StatusGoToSleep" xml:space="preserve"><value>Mise en veille de Windows. WinNutCPlus va se déconnecter.</value></data>
+
+  <data name="ButtonConnect" xml:space="preserve"><value>Connecter</value></data>
+  <data name="ButtonDisconnect" xml:space="preserve"><value>Déconnecter</value></data>
+  <data name="ButtonPreferences" xml:space="preserve"><value>Réglages...</value></data>
+  <data name="ButtonVariables" xml:space="preserve"><value>Variable de l'UPS...</value></data>
+  <data name="ButtonAbout" xml:space="preserve"><value>A Propos...</value></data>
+
+  <data name="TabConnection" xml:space="preserve"><value>Connexion</value></data>
+  <data name="TabCalibration" xml:space="preserve"><value>Calibrage</value></data>
+  <data name="TabMiscellaneous" xml:space="preserve"><value>Divers</value></data>
+  <data name="TabShutdown" xml:space="preserve"><value>Options d'Arrêt</value></data>
+  <data name="TabUpdate" xml:space="preserve"><value>Mise à jour</value></data>
+  <data name="ButtonOk" xml:space="preserve"><value>Ok</value></data>
+  <data name="ButtonCancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="ButtonApplyChanges" xml:space="preserve"><value>Appliquer</value></data>
+
+  <data name="ShutdownWindowTitle" xml:space="preserve"><value>Extinction en cours</value></data>
+  <data name="ShutdownGraceButton" xml:space="preserve"><value>Temps de grâce</value></data>
+  <data name="ShutdownImmediateButton" xml:space="preserve"><value>Arrêt immédiat</value></data>
+
+  <data name="MainSectionLiveReadings" xml:space="preserve"><value>Valeurs en direct</value></data>
+  <data name="MainLabelManufacturer" xml:space="preserve"><value>Fabricant</value></data>
+  <data name="MainLabelModel" xml:space="preserve"><value>Modèle</value></data>
+  <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Autonomie Batterie</value></data>
+  <data name="MainShowWindow" xml:space="preserve"><value>Afficher WinNutCPlus</value></data>
+  <data name="GaugeInputV" xml:space="preserve"><value>Entrée V</value></data>
+  <data name="GaugeInputHz" xml:space="preserve"><value>Entrée Hz</value></data>
+  <data name="GaugeOutputV" xml:space="preserve"><value>Sortie V</value></data>
+  <data name="GaugeBattery" xml:space="preserve"><value>Batterie</value></data>
+  <data name="GaugeLoadPower" xml:space="preserve"><value>Charge / Puissance</value></data>
+  <data name="GaugeBatteryV" xml:space="preserve"><value>Batterie V</value></data>
+
+  <data name="FieldNutHost" xml:space="preserve"><value>Serveur NUT</value></data>
+  <data name="FieldNutPort" xml:space="preserve"><value>Port NUT</value></data>
+  <data name="FieldUpsName" xml:space="preserve"><value>Nom UPS</value></data>
+  <data name="FieldPollingInterval" xml:space="preserve"><value>Intervalle d'interrogation</value></data>
+  <data name="PollingSeconds" xml:space="preserve"><value>Secondes</value></data>
+  <data name="LoginCredentialsHint" xml:space="preserve"><value>Identifiants de connexion au server Nut (laisser vide si non requis)</value></data>
+  <data name="FieldLogin" xml:space="preserve"><value>Identifiant</value></data>
+  <data name="FieldPassword" xml:space="preserve"><value>Mot de Passe</value></data>
+  <data name="FieldAutoReconnect" xml:space="preserve"><value>Reconnecter</value></data>
+
+  <data name="FieldNominalFrequency" xml:space="preserve"><value>Fréquence Alimentation</value></data>
+  <data name="LabelMin" xml:space="preserve"><value>Mini</value></data>
+  <data name="LabelMax" xml:space="preserve"><value>Maxi</value></data>
+  <data name="FieldInputVoltage" xml:space="preserve"><value>Tension d'Entrée</value></data>
+  <data name="FieldInputFrequency" xml:space="preserve"><value>Fréquence d'Entrée</value></data>
+  <data name="FieldOutputVoltage" xml:space="preserve"><value>Tension de Sortie</value></data>
+  <data name="FieldBatteryVoltage" xml:space="preserve"><value>Tension de Batterie</value></data>
+
+  <data name="FieldMinimizeToTray" xml:space="preserve"><value>Réduire au Systray</value></data>
+  <data name="FieldStartMinimized" xml:space="preserve"><value>Démarrer Réduit</value></data>
+  <data name="FieldCloseToTray" xml:space="preserve"><value>Fermer vers le Systray</value></data>
+  <data name="FieldStartWithWindows" xml:space="preserve"><value>Démarrer avec Windows</value></data>
+  <data name="FieldCreateLogFile" xml:space="preserve"><value>Créer Fichier Journal</value></data>
+  <data name="FieldLogLevel" xml:space="preserve"><value>Niveau de Journalisation</value></data>
+
+  <data name="FieldBattLimitLoad" xml:space="preserve"><value>Arrêter si le niveau de batterie est inférieur à</value></data>
+  <data name="FieldBattLimitTime" xml:space="preserve"><value>Arrêter si le temps de maintien est inférieur à (secondes)</value></data>
+  <data name="FieldImmediateStop" xml:space="preserve"><value>Action d'arrêt Immediate</value></data>
+  <data name="FieldRespectFsd" xml:space="preserve"><value>Arrêt sur le signal FSD de NUT</value></data>
+  <data name="FieldStopType" xml:space="preserve"><value>Type d'Arrêt</value></data>
+  <data name="FieldDelayToShutdown" xml:space="preserve"><value>Temporiser l'Arrêt (sec)</value></data>
+  <data name="FieldAllowExtendedTime" xml:space="preserve"><value>Autorise un temps supplémentaire</value></data>
+  <data name="FieldGraceTime" xml:space="preserve"><value>Temps supplémentaire (sec)</value></data>
+
+  <data name="FieldLanguage" xml:space="preserve"><value>Langue</value></data>
+  <data name="LanguageSystemDefault" xml:space="preserve"><value>Paramètre système</value></data>
+  <data name="FieldLanguageRestartNote" xml:space="preserve"><value>Redémarrez WinNutCPlus pour appliquer complètement le changement de langue.</value></data>
+  <data name="FieldTheme" xml:space="preserve"><value>Thème</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Système</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Clair</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Sombre</value></data>
+  <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>Vérifier la mise à jour au Démarrage</value></data>
+  <data name="FieldUpdateDelay" xml:space="preserve"><value>Délai entre vérification</value></data>
+  <data name="FieldUpdateBranch" xml:space="preserve"><value>Branche Stable ou Développement</value></data>
+
+  <data name="AboutDescription" xml:space="preserve"><value>Un client Windows pour Network UPS Tools (NUT).</value></data>
+  <data name="AboutCopyright1" xml:space="preserve"><value>Copyright © 2019-2021 Gawindx (Decaux Nicolas)</value></data>
+  <data name="AboutCopyright2" xml:space="preserve"><value>Copyright © 2019-2024 les contributeurs de NUTDotNet</value></data>
+  <data name="AboutCopyright3" xml:space="preserve"><value>Copyright © 2026 RikoDEV</value></data>
+
+  <data name="ListVarTitle" xml:space="preserve"><value>Variable de l'UPS</value></data>
+  <data name="ListVarName" xml:space="preserve"><value>Nom :</value></data>
+  <data name="ListVarValue" xml:space="preserve"><value>Valeur :</value></data>
+  <data name="ListVarDescription" xml:space="preserve"><value>Description :</value></data>
+  <data name="ListVarReload" xml:space="preserve"><value>Recharger</value></data>
+  <data name="ListVarCopy" xml:space="preserve"><value>Copier</value></data>
+  <data name="ListVarSave" xml:space="preserve"><value>Enregistrer...</value></data>
+
+  <data name="CrashTitle" xml:space="preserve"><value>WinNutCPlus — Erreur inattendue</value></data>
+  <data name="CrashMessage" xml:space="preserve"><value>WinNutCPlus a rencontré une erreur inattendue. Vous pouvez générer un rapport à joindre lors du signalement d'un problème.</value></data>
+  <data name="CrashCopyButton" xml:space="preserve"><value>Copier le rapport dans le presse-papiers</value></data>
+  <data name="CrashSaveButton" xml:space="preserve"><value>Enregistrer le rapport et ouvrir le dossier</value></data>
+  <data name="CrashCloseButton" xml:space="preserve"><value>Fermer WinNutCPlus</value></data>
+
+  <data name="ShutdownWarningMessage" xml:space="preserve"><value>La batterie de l'onduleur est critique. WinNutCPlus va bientôt éteindre cet ordinateur.</value></data>
+  <data name="ShutdownStatusFormat" xml:space="preserve"><value>Batterie : {0}% — Autonomie estimée : {1}</value></data>
+
+  <data name="UpdateAvailableTitle" xml:space="preserve"><value>Mise à jour disponible</value></data>
+  <data name="UpdateButtonLabel" xml:space="preserve"><value>Mettre à jour</value></data>
+  <data name="UpdateCloseButton" xml:space="preserve"><value>Fermer</value></data>
+  <data name="UpdateVisitPage" xml:space="preserve"><value>Voir la page</value></data>
+  <data name="UpdateDownloading" xml:space="preserve"><value>Téléchargement de la mise à jour...</value></data>
+  <data name="UpdateNoneAvailable" xml:space="preserve"><value>Vous êtes à jour</value></data>
+  <data name="UpdateCheckFailed" xml:space="preserve"><value>Échec de la vérification des mises à jour</value></data>
+</root>
