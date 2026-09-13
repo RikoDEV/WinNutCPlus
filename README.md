@@ -1,62 +1,92 @@
-WinNUT is a WinForms client for connecting to a Network UPS Tools monitoring server.
+WinNutCPlus is a modern Windows desktop client for connecting to a [Network UPS Tools](https://networkupstools.org/) (NUT) monitoring server. It's a full rewrite of the original WinNUT-Client on Avalonia UI + .NET 8.
 
-- 📈 Monitor important values of your UPS like voltage and power consumption
+- 📈 Monitor important values of your UPS like voltage, load, and power consumption
 - 🌩️ Receive notifications for abnormal power conditions (power outage)
 - ❤️ Keep your hardware and data safe with configurable suspend and shutdown triggers
+- 🔁 Reliable reconnect after your PC wakes from sleep
+- 🌐 Available in English, German, French, Polish, Russian, Ukrainian, Simplified Chinese, and Traditional Chinese
+- 🎨 Light and dark themes, with an in-app language override
 
 <br />
-<br />
-
-# Future development
-WinNUT has gone through a long evolution with several different programming languages and maintainers. The time has come to retire this iteration of WinNUT and begin planning for the next version. See [issue #40](https://github.com/nutdotnet/WinNUT-Client/issues/40) for more information. Join in the discussions at [Coco.Nut](https://github.com/nutdotnet/Coco.Nut), and shape the future of the next iteration of WinNUT.
 
 # Installation
-1. Get the [latest Release](https://github.com/nutdotnet/WinNUT-Client/releases)
-2. Install WinNUT using the downloaded executable
-3. If you were using an older version of WinNUT (v1.x), copy your "ups.ini" configuration file to the WinNUT-Client installation directory (by default "C:\Program Files(x86)\WinNUT-Client ") for an automatic import of your parameters during the first launch
-4. Start WinNUT and modify the settings according to your needs
 
-## Synology NAS 
+1. Get the [latest release](https://github.com/RikoDEV/WinNutCPlus/releases)
+2. Run the installer and follow the prompts
+3. If you have an existing WinNUT-Client install, your settings are imported automatically on first launch
+4. Start WinNutCPlus and configure your NUT server connection in Preferences
+
+## Synology NAS
+
 If you are connecting to a Synology NAS with a UPS attached, there is some additional configuration that needs to be done.
 
-Referring to the [Synology documentation](https://kb.synology.com/en-us/DSM/help/DSM/AdminCenter/system_hardware_ups?version=7), note that you must add your client computer's IP address to the *Permitted DiskStation Devices* window. In addition, WinNUT requires the following settings:
+Referring to the [Synology documentation](https://kb.synology.com/en-us/DSM/help/DSM/AdminCenter/system_hardware_ups?version=7), note that you must add your client computer's IP address to the *Permitted DiskStation Devices* window. In addition, WinNutCPlus requires the following settings:
 
 - **Login**: upsmon
 - **Password**: secret
 - **UPS Name**: ups
 
+## QNAP NAS
 
-*See [issue 47](https://github.com/gawindx/WinNUT-Client/issues/47#issuecomment-759180793) for more information.*
-
-## QNAP NAS 
 If your NUT server is hosted on a QNAP NAS, be sure to provide the following connection information (default):
 
 - **UPS Name**: qnapups
 - (Login and Password can be empty)
 
-Also check the "Enable network UPS master" box on the Control Panel -> External device page on the QNAP webinterface and add the IP address of the WinNUT-Client to allow the client to connect to the QNAP for UPS information.
+Also check the "Enable network UPS master" box on the Control Panel → External device page on the QNAP web interface, and add the IP address of the WinNutCPlus machine to allow it to connect.
 
-# Contributing
-- [Translations](https://github.com/nutdotnet/WinNUT-Client/wiki/Translations)
-- [Code/Bug fixes](https://github.com/nutdotnet/WinNUT-Client/wiki/Development)
+# Building from source
+
+The project lives under `WinNUT.Avalonia/`:
+
+```
+WinNUT.Avalonia/
+  src/
+    WinNUT.Core/     # NUT protocol, device model, settings, logging, updater (no UI dependency)
+    WinNUT.App/      # Avalonia UI app (views, viewmodels, controls, assets)
+  WinNUT.Core.Tests/ # xUnit test suite
+  installer/         # Inno Setup script
+```
+
+Requires the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
+
+```
+dotnet build WinNUT.Avalonia/src/WinNUT.App/WinNUT.App.csproj
+dotnet test WinNUT.Avalonia/WinNUT.Core.Tests/WinNUT.Core.Tests.csproj
+```
+
+An installer can be produced with [Inno Setup 6+](https://jrsoftware.org/isinfo.php) after a self-contained publish:
+
+```
+dotnet publish WinNUT.Avalonia/src/WinNUT.App/WinNUT.App.csproj -c Release -r win-x64 --self-contained true -o WinNUT.Avalonia/publish/win-x64
+iscc WinNUT.Avalonia/installer/winnut.iss
+```
 
 # Updates
 
-WinNUT has built-in update functionality. This process can be started automatically on startup or manually on demand, and you can choose whether you want to update to the stable or development version. During this process, the new files will be automatically downloaded and installed.
+WinNutCPlus has built-in update functionality. This process can be started automatically on startup or manually on demand, and you can choose whether you want to update to the stable or development version.
 
-## Third Party Components / Acknowledgments
+# Contributing
 
-WinNUT uses:
-- a modified version of AGauge initially developed by [Code-Artist](https://github.com/Code-Artist/AGauge) and under [MIT license](https://opensource.org/licenses/MIT)
-- Class IniReader developed by [Ludvik Jerabek](https://www.codeproject.com/Articles/21896/INI-Reader-Writer-Class-for-C-VB-NET-and-VBScript) and under [The Code Project Open License](http://www.codeproject.com/info/cpol10.aspx)
-- Newtonsoft.Json Library is used in this Project [Newtonsoft.json Website](https://www.newtonsoft.com/json) and under [MIT license](https://opensource.org/licenses/MIT)
+Issues and pull requests are welcome at [RikoDEV/WinNutCPlus](https://github.com/RikoDEV/WinNutCPlus).
+
+## Acknowledgments
+
+WinNutCPlus is built on:
+- [Avalonia UI](https://avaloniaui.net/) — cross-platform .NET UI framework, under the [MIT license](https://opensource.org/licenses/MIT)
+- [CommunityToolkit.Mvvm](https://github.com/CommunityToolkit/dotnet) — MVVM source generators, under the [MIT license](https://opensource.org/licenses/MIT)
+- [Octokit](https://github.com/octokit/octokit.net) — GitHub API client used for update checks, under the [MIT license](https://opensource.org/licenses/MIT)
+- [Microsoft.Toolkit.Uwp.Notifications](https://github.com/CommunityToolkit/WindowsCommunityToolkit) — Windows toast notifications, under the [MIT license](https://opensource.org/licenses/MIT)
+
+Originally based on WinNUT-Client, with thanks to its original authors and contributors.
 
 ## License
 
-WinNUT-Client is a NUT windows client for monitoring your ups hooked up to your favorite linux server.
+WinNutCPlus is a NUT Windows client for monitoring a UPS hooked up to your favorite Linux server.
 
 - Copyright (C) 2019-2021 Gawindx (Decaux Nicolas)
-- Copyright (C) 2022+ NUT Dot Net project
+- Copyright (C) 2022-2024 NUT Dot Net project
+- Copyright (C) 2026 RikoDEV
 
 This program is free software: you can redistribute it and/or modify it under the terms of the
 GNU General Public License as published by the Free Software Foundation, either version 3 of the
