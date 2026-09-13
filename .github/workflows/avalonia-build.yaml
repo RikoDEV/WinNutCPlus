@@ -10,7 +10,7 @@ on:
     paths:
       - 'WinNUT.Avalonia/**'
   push:
-    branches: [main, dev-*]
+    branches: [master, main, dev-*]
     paths:
       - 'WinNUT.Avalonia/**'
 
