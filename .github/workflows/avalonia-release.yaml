@@ -1,7 +1,7 @@
-# Build, package (Inno Setup), and release WinNutCPlus.
-#
-# The published installer .exe is what WinNUT.Core.Update.UpdateChecker looks for as the
-# release asset (it selects the first attached asset whose name ends in ".exe").
+# Build and package (Inno Setup) the WinNutCPlus installer on a version tag push. Does not
+# create or publish a GitHub release — that's done manually, attaching the installer produced
+# here as the release asset. WinNUT.Core.Update.UpdateChecker looks for a GitHub release asset
+# whose name ends in ".exe", so attach the .exe itself (not the zipped artifact download).
 
 name: avalonia-release
 
@@ -9,11 +9,8 @@ on:
   push:
     tags: "v*"
 
-permissions:
-  contents: write
-
 jobs:
-  release:
+  build-installer:
     runs-on: windows-latest
     steps:
       - name: Checkout code
@@ -57,12 +54,9 @@ jobs:
           winnut.iss
         shell: pwsh
 
-      - name: Create GitHub release
-        uses: softprops/action-gh-release@v2
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
         with:
-          draft: true
-          prerelease: ${{ steps.get-ver.outputs.ISPRERELEASE == 'true' }}
-          fail_on_unmatched_files: true
-          generate_release_notes: true
-          files: |
-            WinNUT.Avalonia/installer/Output/WinNUT-Setup-${{ steps.get-ver.outputs.VER }}.exe
+          name: WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}
+          path: WinNUT.Avalonia/installer/Output/WinNUT-Setup-${{ steps.get-ver.outputs.VER }}.exe
+          if-no-files-found: error
