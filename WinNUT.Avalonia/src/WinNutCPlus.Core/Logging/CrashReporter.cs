@@ -1,5 +1,7 @@
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using WinNutCPlus.Core.Settings;
 
 namespace WinNutCPlus.Core.Logging;
 
@@ -17,7 +19,7 @@ public static class CrashReporter
         "NUT_ServerAddress", "NUT_ServerPort", "NUT_UPSName", "NUT_Username", "NUT_Password",
     };
 
-    public static string BuildReport(Exception exception, IReadOnlyList<string> lastEvents, object settings, string appVersion)
+    public static string BuildReport(Exception exception, IReadOnlyList<string> lastEvents, AppSettings settings, string appVersion)
     {
         var sb = new StringBuilder();
         sb.AppendLine("WinNutCPlus Crash Report");
@@ -27,7 +29,7 @@ public static class CrashReporter
         sb.AppendLine();
 
         sb.AppendLine("== Settings ==");
-        foreach (var prop in settings.GetType().GetProperties())
+        foreach (var prop in typeof(AppSettings).GetProperties())
         {
             var isSensitive = SensitiveKeys.Contains(prop.Name);
             var value = isSensitive ? "{Removed}" : SafeToString(prop.GetValue(settings));
@@ -36,13 +38,12 @@ public static class CrashReporter
         sb.AppendLine();
 
         sb.AppendLine("== Exception ==");
-        sb.AppendLine(JsonSerializer.Serialize(new
-        {
+        var exceptionInfo = new CrashExceptionInfo(
             exception.GetType().FullName,
             exception.Message,
             exception.StackTrace,
-            Inner = exception.InnerException?.ToString(),
-        }, new JsonSerializerOptions { WriteIndented = true }));
+            exception.InnerException?.ToString());
+        sb.AppendLine(JsonSerializer.Serialize(exceptionInfo, CrashReportJsonContext.Default.CrashExceptionInfo));
         sb.AppendLine();
 
         sb.AppendLine("== Last Events (most recent first) ==");
@@ -64,4 +65,12 @@ public static class CrashReporter
         File.WriteAllText(path, report);
         return path;
     }
+}
+
+internal sealed record CrashExceptionInfo(string? FullName, string Message, string? StackTrace, string? Inner);
+
+[JsonSourceGenerationOptions(WriteIndented = true)]
+[JsonSerializable(typeof(CrashExceptionInfo))]
+internal partial class CrashReportJsonContext : JsonSerializerContext
+{
 }

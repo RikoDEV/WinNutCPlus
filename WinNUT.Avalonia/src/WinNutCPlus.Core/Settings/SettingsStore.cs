@@ -12,11 +12,6 @@ namespace WinNutCPlus.Core.Settings;
 [SupportedOSPlatform("windows")]
 public sealed class SettingsStore
 {
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        WriteIndented = true,
-    };
-
     private readonly string _filePath;
     private readonly Logger _logFile;
 
@@ -46,7 +41,7 @@ public sealed class SettingsStore
             try
             {
                 var json = File.ReadAllText(_filePath);
-                Current = JsonSerializer.Deserialize<AppSettings>(json, JsonOptions) ?? new AppSettings();
+                Current = JsonSerializer.Deserialize(json, AppSettingsJsonContext.Default.AppSettings) ?? new AppSettings();
             }
             catch (Exception ex)
             {
@@ -93,7 +88,7 @@ public sealed class SettingsStore
     public void Save()
     {
         Directory.CreateDirectory(Path.GetDirectoryName(_filePath)!);
-        var json = JsonSerializer.Serialize(Current, JsonOptions);
+        var json = JsonSerializer.Serialize(Current, AppSettingsJsonContext.Default.AppSettings);
         File.WriteAllText(_filePath, json);
     }
 }

@@ -5,12 +5,18 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\Icons\WinNut.ico</ApplicationIcon>
     <UseWindowsForms>false</UseWindowsForms>
     <RootNamespace>WinNutCPlus.App</RootNamespace>
     <AssemblyName>WinNutCPlus</AssemblyName>
     <Product>WinNutCPlus</Product>
     <AssemblyTitle>WinNutCPlus</AssemblyTitle>
     <Company>RikoDEV</Company>
+    <!-- Only applies to self-contained `dotnet publish` (installer builds); a plain build/run
+         is unaffected. Cuts unused BCL and Avalonia cross-platform backend (X11/macOS/Vulkan)
+         assemblies out of the win-x64 install. -->
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>partial</TrimMode>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,4 +40,13 @@
   <ItemGroup>
     <ProjectReference Include="..\WinNutCPlus.Core\WinNutCPlus.Core.csproj" />
   </ItemGroup>
+
+  <!-- Native packages (SkiaSharp, HarfBuzzSharp) copy their .pdb files into the publish output;
+       those are debug symbols with no runtime value and shouldn't ship in the installer. -->
+  <Target Name="RemovePdbFromPublishOutput" AfterTargets="Publish">
+    <ItemGroup>
+      <_PdbToRemove Include="$(PublishDir)*.pdb" />
+    </ItemGroup>
+    <Delete Files="@(_PdbToRemove)" />
+  </Target>
 </Project>
