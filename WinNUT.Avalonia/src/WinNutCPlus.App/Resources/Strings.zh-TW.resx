@@ -25,6 +25,10 @@
   <data name="StatusInvalidLogin" xml:space="preserve"><value>錯誤的登入資訊 (帳號或密碼)</value></data>
   <data name="StatusExitSleep" xml:space="preserve"><value>從睡眠喚醒 Windows 後重新啟動 WinNutCPlus。</value></data>
   <data name="StatusGoToSleep" xml:space="preserve"><value>Windows 待機時，WinNutCPlus 將中斷連線。</value></data>
+  <data name="StatusConnectionError" xml:space="preserve"><value>連線錯誤：{0}</value></data>
+  <data name="StatusNutError" xml:space="preserve"><value>NUT 錯誤：{0}</value></data>
+  <data name="ToastConnected" xml:space="preserve"><value>已連線至 {0}</value></data>
+  <data name="ToastImportedSettings" xml:space="preserve"><value>已從您先前的安裝匯入 {0} 項設定。</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>連線</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>中斷連線</value></data>

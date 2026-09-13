@@ -196,7 +196,7 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
             Manufacturer = device.UpsData?.Mfr ?? "-";
             Model = device.UpsData?.Model ?? "-";
             SetStatus(Localize.Get("StatusConnected"), StatusOkBrush);
-            ToastService.Send("WinNutCPlus", $"Connected to {device.Name}");
+            ToastService.Send("WinNutCPlus", Localize.Format("ToastConnected", device.Name));
         });
     }
 
@@ -234,7 +234,7 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
         {
             if (!device.IsReconnecting)
             {
-                SetStatus("Connection error: " + ex.Message, StatusBadBrush);
+                SetStatus(Localize.Format("StatusConnectionError", ex.Message), StatusBadBrush);
             }
         });
     }
@@ -254,7 +254,7 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
             }
             else
             {
-                SetStatus("NUT error: " + ex.LastTransaction.ResponseType, StatusWarnBrush);
+                SetStatus(Localize.Format("StatusNutError", ex.LastTransaction.ResponseType), StatusWarnBrush);
             }
         });
     }

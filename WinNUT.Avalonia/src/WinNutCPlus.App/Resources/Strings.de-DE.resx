@@ -25,6 +25,10 @@
   <data name="StatusInvalidLogin" xml:space="preserve"><value>Falsche Login-ID (Benutzername oder Passwort)</value></data>
   <data name="StatusExitSleep" xml:space="preserve"><value>Starte WinNutCPlus neu, nachdem Windows aus dem Standby erweckt wurde.</value></data>
   <data name="StatusGoToSleep" xml:space="preserve"><value>Windows-Standby. WinNutCPlus wird getrennt.</value></data>
+  <data name="StatusConnectionError" xml:space="preserve"><value>Verbindungsfehler: {0}</value></data>
+  <data name="StatusNutError" xml:space="preserve"><value>NUT-Fehler: {0}</value></data>
+  <data name="ToastConnected" xml:space="preserve"><value>Verbunden mit {0}</value></data>
+  <data name="ToastImportedSettings" xml:space="preserve"><value>{0} Einstellungen aus Ihrer vorherigen Installation importiert.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Verbinden</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Verbindung trennen</value></data>

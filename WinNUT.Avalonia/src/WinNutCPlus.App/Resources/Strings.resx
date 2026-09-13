@@ -43,6 +43,10 @@
   <data name="StatusInvalidLogin" xml:space="preserve"><value>Wrong Login ID (Username or Password)</value></data>
   <data name="StatusExitSleep" xml:space="preserve"><value>Restarting WinNutCPlus after waking up from Windows.</value></data>
   <data name="StatusGoToSleep" xml:space="preserve"><value>Windows standby. WinNutCPlus will disconnect.</value></data>
+  <data name="StatusConnectionError" xml:space="preserve"><value>Connection error: {0}</value></data>
+  <data name="StatusNutError" xml:space="preserve"><value>NUT error: {0}</value></data>
+  <data name="ToastConnected" xml:space="preserve"><value>Connected to {0}</value></data>
+  <data name="ToastImportedSettings" xml:space="preserve"><value>Imported {0} settings from your previous installation.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Connect</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Disconnect</value></data>

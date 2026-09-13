@@ -25,6 +25,10 @@
   <data name="StatusInvalidLogin" xml:space="preserve"><value>Невірні дані авторизації (логін або пароль)</value></data>
   <data name="StatusExitSleep" xml:space="preserve"><value>Перезапуск WinNutCPlus після пробудження Windows.</value></data>
   <data name="StatusGoToSleep" xml:space="preserve"><value>Очікування Windows. WinNutCPlus вимкнеться.</value></data>
+  <data name="StatusConnectionError" xml:space="preserve"><value>Помилка з'єднання: {0}</value></data>
+  <data name="StatusNutError" xml:space="preserve"><value>Помилка NUT: {0}</value></data>
+  <data name="ToastConnected" xml:space="preserve"><value>Підключено до {0}</value></data>
+  <data name="ToastImportedSettings" xml:space="preserve"><value>Імпортовано {0} налаштувань з попередньої інсталяції.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Підключитися</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Відключитись</value></data>

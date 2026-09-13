@@ -25,6 +25,10 @@
   <data name="StatusInvalidLogin" xml:space="preserve"><value>ID de connexion incorrect (nom d'utilisateur ou mot de passe)</value></data>
   <data name="StatusExitSleep" xml:space="preserve"><value>Redémarrage de WinNutCPlus après la sortie de veille de Windows.</value></data>
   <data name="StatusGoToSleep" xml:space="preserve"><value>Mise en veille de Windows. WinNutCPlus va se déconnecter.</value></data>
+  <data name="StatusConnectionError" xml:space="preserve"><value>Erreur de connexion : {0}</value></data>
+  <data name="StatusNutError" xml:space="preserve"><value>Erreur NUT : {0}</value></data>
+  <data name="ToastConnected" xml:space="preserve"><value>Connecté à {0}</value></data>
+  <data name="ToastImportedSettings" xml:space="preserve"><value>{0} paramètres importés depuis votre installation précédente.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Connecter</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Déconnecter</value></data>

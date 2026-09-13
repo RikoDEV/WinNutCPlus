@@ -76,7 +76,7 @@ public partial class App : Application
 
             if (_host.ImportedLegacySettings is { } imported)
             {
-                ToastService.Send("WinNutCPlus", $"Imported {imported.FieldsImported} settings from your previous installation.");
+                ToastService.Send("WinNutCPlus", Localize.Format("ToastImportedSettings", imported.FieldsImported));
             }
 
             if (_host.Settings.NUT_AutoReconnect)

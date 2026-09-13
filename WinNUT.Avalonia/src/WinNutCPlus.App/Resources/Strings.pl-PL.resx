@@ -25,6 +25,10 @@
   <data name="StatusInvalidLogin" xml:space="preserve"><value>Błędne dane logowania (nazwa użytkownika lub hasło)</value></data>
   <data name="StatusExitSleep" xml:space="preserve"><value>Ponowne uruchamianie WinNutCPlus po wybudzeniu Windows.</value></data>
   <data name="StatusGoToSleep" xml:space="preserve"><value>Windows przechodzi w stan uśpienia. WinNutCPlus się rozłączy.</value></data>
+  <data name="StatusConnectionError" xml:space="preserve"><value>Błąd połączenia: {0}</value></data>
+  <data name="StatusNutError" xml:space="preserve"><value>Błąd NUT: {0}</value></data>
+  <data name="ToastConnected" xml:space="preserve"><value>Połączono z {0}</value></data>
+  <data name="ToastImportedSettings" xml:space="preserve"><value>Zaimportowano {0} ustawień z poprzedniej instalacji.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Połącz</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Rozłącz</value></data>
