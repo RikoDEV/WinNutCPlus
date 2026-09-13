@@ -65,5 +65,38 @@ Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#MyAppName}}"; Flags: nowait postinstall skipifsilent
 
-; Note: settings/logs under %LocalAppData%\WinNutCPlus are deliberately left in place on uninstall
-; (so a reinstall/upgrade doesn't lose the user's configuration) rather than auto-deleted.
+[UninstallDelete]
+; Settings, logs and crash reports (AppPaths.ResolveDataDirectory's default, unless the user ran
+; with -PersistDataInStartupPath, in which case they already live under {app} and are removed
+; with it). Uninstall should leave nothing behind, so this is removed unconditionally rather than
+; kept around for a future reinstall.
+Type: filesandordirs; Name: "{localappdata}\{#MyAppName}"
+
+[Code]
+// The app can run minimized to the system tray (no visible window) via MinimizeToTray, so
+// Setup/Uninstall's own file-locking detection has nothing to prompt the user to close. Kill it
+// outright instead, both before an upgrade overwrites its files and before Uninstall removes
+// them — otherwise the locked exe/dlls are silently skipped, leaving stale files behind.
+procedure KillRunningApp();
+var
+  ResultCode: Integer;
+begin
+  Exec(ExpandConstant('{sys}\taskkill.exe'), '/F /T /IM "{#MyAppExeName}"', '', SW_HIDE,
+    ewWaitUntilTerminated, ResultCode);
+
+  // taskkill returns once the process is reported terminated; give the OS a brief moment to
+  // finish tearing down its open file handles before we try to touch the same files.
+  Sleep(500);
+end;
+
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+begin
+  KillRunningApp();
+  Result := '';
+end;
+
+function InitializeUninstall(): Boolean;
+begin
+  KillRunningApp();
+  Result := True;
+end;
