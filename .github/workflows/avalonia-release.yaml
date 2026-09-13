@@ -1,7 +1,4 @@
-# Build, package (Inno Setup), and release the new Avalonia-based WinNUT.
-#
-# Uses a distinct tag prefix (avalonia-v*) so this never collides with the legacy WinForms
-# release workflow (build-release.yaml), which triggers on plain v* tags.
+# Build, package (Inno Setup), and release WinNutCPlus.
 #
 # The published installer .exe is what WinNUT.Core.Update.UpdateChecker looks for as the
 # release asset (it selects the first attached asset whose name ends in ".exe").
@@ -10,7 +7,7 @@ name: avalonia-release
 
 on:
   push:
-    tags: "avalonia-v*"
+    tags: "v*"
 
 jobs:
   release:
