@@ -45,24 +45,24 @@ The project lives under `WinNUT.Avalonia/`:
 ```
 WinNUT.Avalonia/
   src/
-    WinNUT.Core/     # NUT protocol, device model, settings, logging, updater (no UI dependency)
-    WinNUT.App/      # Avalonia UI app (views, viewmodels, controls, assets)
-  WinNUT.Core.Tests/ # xUnit test suite
-  installer/         # Inno Setup script
+    WinNutCPlus.Core/     # NUT protocol, device model, settings, logging, updater (no UI dependency)
+    WinNutCPlus.App/      # Avalonia UI app (views, viewmodels, controls, assets)
+  WinNutCPlus.Core.Tests/ # xUnit test suite
+  installer/               # Inno Setup script
 ```
 
 Requires the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 ```
-dotnet build WinNUT.Avalonia/src/WinNUT.App/WinNUT.App.csproj
-dotnet test WinNUT.Avalonia/WinNUT.Core.Tests/WinNUT.Core.Tests.csproj
+dotnet build WinNUT.Avalonia/src/WinNutCPlus.App/WinNutCPlus.App.csproj
+dotnet test WinNUT.Avalonia/WinNutCPlus.Core.Tests/WinNutCPlus.Core.Tests.csproj
 ```
 
 An installer can be produced with [Inno Setup 6+](https://jrsoftware.org/isinfo.php) after a self-contained publish:
 
 ```
-dotnet publish WinNUT.Avalonia/src/WinNUT.App/WinNUT.App.csproj -c Release -r win-x64 --self-contained true -o WinNUT.Avalonia/publish/win-x64
-iscc WinNUT.Avalonia/installer/winnut.iss
+dotnet publish WinNUT.Avalonia/src/WinNutCPlus.App/WinNutCPlus.App.csproj -c Release -r win-x64 --self-contained true -o WinNUT.Avalonia/publish/win-x64
+iscc WinNUT.Avalonia/installer/winnutcplus.iss
 ```
 
 # Updates

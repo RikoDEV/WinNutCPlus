@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="using:WinNutCPlus.App.Localization"
+        Width="380" Height="380" CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource WindowBgBrush}"
+        Icon="avares://WinNutCPlus/Assets/Icons/WinNut.ico"
+        x:Class="WinNutCPlus.App.Views.AboutWindow"
+        Title="About WinNutCPlus">
+
+    <StackPanel Spacing="10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24">
+        <Image Source="avares://WinNutCPlus/Assets/Icons/WinNut.ico" Width="56" Height="56" HorizontalAlignment="Center" Margin="0,0,0,4" />
+        <TextBlock Text="WinNutCPlus" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" />
+        <Border Classes="pill" Background="{DynamicResource ControlBgBrush}" HorizontalAlignment="Center">
+            <TextBlock Name="VersionText" Text="Version" FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}" />
+        </Border>
+        <TextBlock Text="{loc:Loc AboutDescription}" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center" Classes="subtitle" />
+        <StackPanel Spacing="1" HorizontalAlignment="Center" Margin="0,4,0,0">
+            <TextBlock Text="{loc:Loc AboutCopyright1}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Classes="subtitle" FontSize="11" />
+            <TextBlock Text="{loc:Loc AboutCopyright2}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Classes="subtitle" FontSize="11" />
+            <TextBlock Text="{loc:Loc AboutCopyright3}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Classes="subtitle" FontSize="11" />
+        </StackPanel>
+        <Button Name="GitHubLink" Classes="secondary" Content="github.com/RikoDEV/WinNutCPlus" HorizontalAlignment="Center" Margin="0,6,0,0" />
+        <Button Name="OkButton" Classes="primary" Content="{loc:Loc ButtonOk}" HorizontalAlignment="Center" Margin="0,2,0,0" />
+    </StackPanel>
+
+</Window>

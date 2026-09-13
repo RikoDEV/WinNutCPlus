@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WinNutCPlus.App/WinNutCPlus.App.csproj" />
+    <Project Path="src/WinNutCPlus.Core/WinNutCPlus.Core.csproj" />
+  </Folder>
+  <Project Path="WinNutCPlus.Core.Tests/WinNutCPlus.Core.Tests.csproj" />
+</Solution>
