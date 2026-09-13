@@ -20,6 +20,14 @@ public partial class PreferencesViewModel : ViewModelBase
 
     public event Action? Saved;
     public event Action? CloseRequested;
+    /// <summary>Raised after Save() when the language selection actually changed, since most
+    /// localized text is resolved once at window-construction time (LocExtension) and won't
+    /// re-render live — the cleanest fix is restarting the process, not asking the user to do it
+    /// themselves (relaunching the .exe while minimized to tray doesn't start a new process at
+    /// all; the single-instance mutex just re-activates the existing one).</summary>
+    public event Action? RestartRequested;
+
+    private int _initialLanguageIndex;
 
     // --- Connection tab ---
     [ObservableProperty] private string _serverAddress = string.Empty;
@@ -121,6 +129,7 @@ public partial class PreferencesViewModel : ViewModelBase
         BattVMax = s.CAL_BattVMax;
 
         LanguageIndex = s.LG_Language;
+        _initialLanguageIndex = s.LG_Language;
         ThemeMode = s.LG_Theme;
 
         MinimizeToTray = s.MinimizeToTray;
@@ -292,6 +301,12 @@ public partial class PreferencesViewModel : ViewModelBase
 
         IsModified = false;
         Saved?.Invoke();
+
+        if (LanguageIndex != _initialLanguageIndex)
+        {
+            _initialLanguageIndex = LanguageIndex;
+            RestartRequested?.Invoke();
+        }
     }
 
     [RelayCommand]

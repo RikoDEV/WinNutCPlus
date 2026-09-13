@@ -21,8 +21,21 @@ public sealed class SingleInstance : IDisposable
 
     public SingleInstance()
     {
-        _mutex = new Mutex(initiallyOwned: true, MutexName, out var createdNew);
-        IsFirstInstance = createdNew;
+        _mutex = new Mutex(initiallyOwned: false, MutexName);
+
+        // Wait briefly rather than checking instantaneously: a restart-for-settings-change
+        // relaunch (see PreferencesWindow.RestartApplication) starts this new process before the
+        // old one has necessarily released the mutex yet, and an instant check would wrongly
+        // conclude this is a second, unwanted instance.
+        try
+        {
+            IsFirstInstance = _mutex.WaitOne(TimeSpan.FromSeconds(2));
+        }
+        catch (AbandonedMutexException)
+        {
+            // The prior owner exited without releasing (e.g. crashed) — we still got it.
+            IsFirstInstance = true;
+        }
     }
 
     /// <summary>Starts listening for activation signals from later launch attempts. Call only when <see cref="IsFirstInstance"/>.</summary>
@@ -71,7 +84,7 @@ public sealed class SingleInstance : IDisposable
     public void Dispose()
     {
         _listenerCts?.Cancel();
-        _mutex.ReleaseMutex();
+        if (IsFirstInstance) _mutex.ReleaseMutex();
         _mutex.Dispose();
     }
 }
