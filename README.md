@@ -1,3 +1,6 @@
+<img width="1742" height="1007" alt="image" src="https://github.com/user-attachments/assets/5bf826d1-c37b-4682-a0f5-2900403093fd" />
+
+
 WinNutCPlus is a modern Windows desktop client for connecting to a [Network UPS Tools](https://networkupstools.org/) (NUT) monitoring server. It's a full rewrite of the original WinNUT-Client on Avalonia UI + .NET 8.
 
 - 📈 Monitor important values of your UPS like voltage, load, and power consumption
