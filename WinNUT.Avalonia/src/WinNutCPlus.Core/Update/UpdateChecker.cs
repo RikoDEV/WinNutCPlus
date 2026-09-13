@@ -78,23 +78,28 @@ public sealed class UpdateChecker
         response.EnsureSuccessStatusCode();
 
         await using var sourceStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-        await using var destinationStream = new FileStream(destinationPath, System.IO.FileMode.Create, FileAccess.Write, FileShare.None);
 
         var buffer = new byte[4096];
         long totalRead = 0;
         var nextProgressUpdate = DateTime.UtcNow;
         int bytesRead;
 
-        while ((bytesRead = await sourceStream.ReadAsync(buffer, cancellationToken).ConfigureAwait(false)) > 0)
+        // Written in its own scope so the exclusive file lock is released (and the write
+        // flushed to disk) before UpdateDownloadCompleted fires below — subscribers launch this
+        // file via ShellExecute, which fails with a sharing violation if it's still open here.
+        await using (var destinationStream = new FileStream(destinationPath, System.IO.FileMode.Create, FileAccess.Write, FileShare.None))
         {
-            await destinationStream.WriteAsync(buffer.AsMemory(0, bytesRead), cancellationToken).ConfigureAwait(false);
-            totalRead += bytesRead;
-
-            var now = DateTime.UtcNow;
-            if (now >= nextProgressUpdate)
+            while ((bytesRead = await sourceStream.ReadAsync(buffer, cancellationToken).ConfigureAwait(false)) > 0)
             {
-                UpdateDownloadProgressChanged?.Invoke(new UpdateDownloadProgress { BytesDownloaded = totalRead, TotalBytes = asset.Size });
-                nextProgressUpdate = now + ProgressUpdateDelay;
+                await destinationStream.WriteAsync(buffer.AsMemory(0, bytesRead), cancellationToken).ConfigureAwait(false);
+                totalRead += bytesRead;
+
+                var now = DateTime.UtcNow;
+                if (now >= nextProgressUpdate)
+                {
+                    UpdateDownloadProgressChanged?.Invoke(new UpdateDownloadProgress { BytesDownloaded = totalRead, TotalBytes = asset.Size });
+                    nextProgressUpdate = now + ProgressUpdateDelay;
+                }
             }
         }
 
