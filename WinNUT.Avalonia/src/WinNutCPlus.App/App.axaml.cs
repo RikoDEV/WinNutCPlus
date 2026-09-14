@@ -45,7 +45,6 @@ public partial class App : Application
         mainWindow.Show();
         mainWindow.WindowState = WindowState.Normal;
         mainWindow.Activate();
-        if (_trayIcon is not null) _trayIcon.IsVisible = false;
     }
 
     public override void Initialize()
