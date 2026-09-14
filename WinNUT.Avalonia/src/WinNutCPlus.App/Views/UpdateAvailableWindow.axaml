@@ -4,8 +4,8 @@
         xmlns:loc="using:WinNutCPlus.App.Localization"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="460" d:DesignHeight="380"
-        Width="460" Height="380"
+        mc:Ignorable="d" d:DesignWidth="460" d:DesignHeight="410"
+        Width="460" Height="410"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource WindowBgBrush}"
         Icon="avares://WinNutCPlus/Assets/Icons/WinNut.ico"
@@ -18,7 +18,7 @@
     </Design.DataContext>
 
     <Border Classes="card" Margin="16">
-        <Grid RowDefinitions="Auto,Auto,*,Auto,Auto" RowSpacing="12">
+        <Grid RowDefinitions="Auto,Auto,*,Auto,Auto,Auto" RowSpacing="12">
             <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="10">
                 <TextBlock Text="&#xE896;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="20"
                            Foreground="{DynamicResource AccentBrush}" VerticalAlignment="Center" />
@@ -32,13 +32,14 @@
                          Background="Transparent" BorderThickness="0" />
             </Border>
 
-            <Grid Grid.Row="3" IsVisible="{Binding IsDownloading}">
+            <TextBlock Grid.Row="3" Text="{loc:Loc UpdateDownloading}" IsVisible="{Binding IsDownloading}" Classes="subtitle" />
+
+            <Grid Grid.Row="4" IsVisible="{Binding IsDownloading}">
                 <ProgressBar Minimum="0" Maximum="100" Value="{Binding ProgressPercent}" Height="20" CornerRadius="10" />
                 <TextBlock Text="{Binding ProgressText}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11" />
             </Grid>
-            <TextBlock Grid.Row="3" Text="{loc:Loc UpdateDownloading}" IsVisible="{Binding IsDownloading}" Classes="subtitle" Margin="0,-6,0,0" />
 
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
                 <Button Name="VisitPageButton" Classes="secondary" Content="{loc:Loc UpdateVisitPage}" />
                 <Button Classes="primary" Content="{loc:Loc UpdateButtonLabel}" Command="{Binding UpdateCommand}" IsEnabled="{Binding !IsDownloading}" />
             </StackPanel>
