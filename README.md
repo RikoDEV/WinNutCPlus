@@ -58,11 +58,14 @@ dotnet build WinNUT.Avalonia/src/WinNutCPlus.App/WinNutCPlus.App.csproj
 dotnet test WinNUT.Avalonia/WinNutCPlus.Core.Tests/WinNutCPlus.Core.Tests.csproj
 ```
 
-An installer can be produced with [Inno Setup 6+](https://jrsoftware.org/isinfo.php) after a self-contained publish:
+An installer can be produced with [Inno Setup 6+](https://jrsoftware.org/isinfo.php) after a self-contained publish. x64 and ARM64 are separate installers built from separate publish output — pass `/DMyAppArch=arm64` for the ARM64 build (defaults to x64):
 
 ```
 dotnet publish WinNUT.Avalonia/src/WinNutCPlus.App/WinNutCPlus.App.csproj -c Release -r win-x64 --self-contained true -o WinNUT.Avalonia/publish/win-x64
-iscc WinNUT.Avalonia/installer/winnutcplus.iss
+iscc /DMyAppArch=x64 WinNUT.Avalonia/installer/winnutcplus.iss
+
+dotnet publish WinNUT.Avalonia/src/WinNutCPlus.App/WinNutCPlus.App.csproj -c Release -r win-arm64 --self-contained true -o WinNUT.Avalonia/publish/win-arm64
+iscc /DMyAppArch=arm64 WinNUT.Avalonia/installer/winnutcplus.iss
 ```
 
 # Updates

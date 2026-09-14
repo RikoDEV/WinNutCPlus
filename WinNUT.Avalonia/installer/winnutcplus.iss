@@ -2,13 +2,18 @@
 ; Replaces the legacy Setup.vdproj (VS Installer Projects, obsolete/unsupported by modern
 ; tooling). Packages the self-contained publish output of WinNutCPlus.App.
 ;
-; Build steps:
+; Build steps (repeat per architecture — x64 and arm64 are separate installers, not one
+; combined package, since dotnet publish's self-contained output is architecture-specific):
 ;   1. dotnet publish ..\src\WinNutCPlus.App\WinNutCPlus.App.csproj -c Release -r win-x64 ^
 ;        --self-contained true -p:PublishSingleFile=false -o ..\publish\win-x64
-;   2. Open this file in the Inno Setup Compiler (or run: iscc winnutcplus.iss)
+;      (swap win-x64 for win-arm64 for the ARM64 build)
+;   2. iscc /DMyAppVersion=1.2.3 /DMyAppArch=x64 winnutcplus.iss
+;      (or /DMyAppArch=arm64 — omit MyAppArch entirely for a local x64 default build)
 ;
 ; The UpdateChecker (WinNutCPlus.Core.Update.UpdateChecker) looks for a GitHub release asset
-; ending in ".exe" — point release automation at the installer this script produces.
+; ending in ".exe" whose name contains the running process's architecture ("x64"/"arm64"),
+; falling back to the first ".exe" asset for older releases that only ever shipped one —
+; point release automation at the installer(s) this script produces, one per architecture.
 
 #define MyAppName "WinNutCPlus"
 #define MyAppPublisher "RikoDEV"
@@ -17,6 +22,17 @@
 ; Version is passed in from the build (iscc /DMyAppVersion=1.2.3 winnutcplus.iss); default for local builds:
 #ifndef MyAppVersion
   #define MyAppVersion "0.1.0"
+#endif
+; Architecture is passed in the same way (iscc /DMyAppArch=arm64 winnutcplus.iss); default: x64.
+#ifndef MyAppArch
+  #define MyAppArch "x64"
+#endif
+#if MyAppArch == "arm64"
+  #define MyAppPublishDir "win-arm64"
+  #define MyAppArchAllowed "arm64"
+#else
+  #define MyAppPublishDir "win-x64"
+  #define MyAppArchAllowed "x64compatible"
 #endif
 
 [Setup]
@@ -30,14 +46,16 @@ AppUpdatesURL={#MyAppURL}/releases
 DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-; Installer output filename; matched by the release-asset ".exe" lookup in UpdateChecker.
-OutputBaseFilename=WinNutCPlus-Setup-{#MyAppVersion}
+; Installer output filename; matched by the release-asset ".exe" lookup in UpdateChecker, which
+; also keys off the "-x64"/"-arm64" suffix to pick the asset matching the running architecture.
+OutputBaseFilename=WinNutCPlus-Setup-{#MyAppVersion}-{#MyAppArch}
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-ArchitecturesInstallIn64BitMode=x64compatible
+ArchitecturesAllowed={#MyAppArchAllowed}
+ArchitecturesInstallIn64BitMode={#MyAppArchAllowed}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 SetupIconFile=..\src\WinNutCPlus.App\Assets\Icons\WinNut.ico
 
@@ -49,7 +67,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "launchatstartup"; Description: "Start WinNutCPlus automatically when you sign in"; GroupDescription: "Startup:"; Flags: unchecked
 
 [Files]
-Source: "..\publish\win-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\publish\{#MyAppPublishDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

@@ -1,9 +1,64 @@
+using System.Runtime.InteropServices;
+using Octokit;
 using WinNutCPlus.Core.Update;
 
 namespace WinNutCPlus.Core.Tests;
 
 public class UpdateCheckerTests
 {
+    private static ReleaseAsset Asset(string name) => new(
+        url: "", id: 0, nodeId: "", name: name, label: "", state: "", contentType: "",
+        size: 0, downloadCount: 0, createdAt: default, updatedAt: default, browserDownloadUrl: "", uploader: null!);
+
+    [Fact]
+    public void SelectInstallerAsset_PicksMatchingArchAsset_X64()
+    {
+        var assets = new[] { Asset("WinNutCPlus-Setup-1.2.3-arm64.exe"), Asset("WinNutCPlus-Setup-1.2.3-x64.exe") };
+
+        var picked = UpdateChecker.SelectInstallerAsset(assets, Architecture.X64);
+
+        Assert.Equal("WinNutCPlus-Setup-1.2.3-x64.exe", picked?.Name);
+    }
+
+    [Fact]
+    public void SelectInstallerAsset_PicksMatchingArchAsset_Arm64()
+    {
+        var assets = new[] { Asset("WinNutCPlus-Setup-1.2.3-arm64.exe"), Asset("WinNutCPlus-Setup-1.2.3-x64.exe") };
+
+        var picked = UpdateChecker.SelectInstallerAsset(assets, Architecture.Arm64);
+
+        Assert.Equal("WinNutCPlus-Setup-1.2.3-arm64.exe", picked?.Name);
+    }
+
+    [Fact]
+    public void SelectInstallerAsset_FallsBackToFirstExe_WhenNoArchSuffix()
+    {
+        // Older releases only ever shipped one, unsuffixed installer.
+        var assets = new[] { Asset("WinNutCPlus-Setup-1.0.0.exe") };
+
+        var picked = UpdateChecker.SelectInstallerAsset(assets, Architecture.Arm64);
+
+        Assert.Equal("WinNutCPlus-Setup-1.0.0.exe", picked?.Name);
+    }
+
+    [Fact]
+    public void SelectInstallerAsset_IgnoresNonExeAssets()
+    {
+        var assets = new[] { Asset("checksums.txt"), Asset("WinNutCPlus-Setup-1.2.3-x64.exe") };
+
+        var picked = UpdateChecker.SelectInstallerAsset(assets, Architecture.X64);
+
+        Assert.Equal("WinNutCPlus-Setup-1.2.3-x64.exe", picked?.Name);
+    }
+
+    [Fact]
+    public void SelectInstallerAsset_NoExeAssets_ReturnsNull()
+    {
+        var assets = new[] { Asset("checksums.txt") };
+
+        Assert.Null(UpdateChecker.SelectInstallerAsset(assets, Architecture.X64));
+    }
+
     [Fact]
     public void UpdateCheckDelayPassed_NeverChecked_AlwaysDue()
     {

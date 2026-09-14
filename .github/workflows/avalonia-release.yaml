@@ -1,8 +1,9 @@
-# Build and package (Inno Setup) the WinNutCPlus installer on a version tag push, then attach it
-# to the GitHub release for that tag. Tag and release creation/editing (title, notes,
-# draft/prerelease status) stay manual — this only uploads the .exe as a release asset,
-# creating a draft release if one doesn't already exist for the tag, without touching notes.
-# WinNutCPlus.Core.Update.UpdateChecker looks for a release asset whose name ends in ".exe".
+# Build and package (Inno Setup) the WinNutCPlus installer, once per architecture, on a version
+# tag push, then attach both to the GitHub release for that tag. Tag and release creation/editing
+# (title, notes, draft/prerelease status) stay manual — this only uploads the .exe files as
+# release assets, creating a draft release if one doesn't already exist for the tag, without
+# touching notes. WinNutCPlus.Core.Update.UpdateChecker looks for a release asset whose name ends
+# in ".exe" and contains the running process's architecture ("x64"/"arm64").
 
 name: avalonia-release
 
@@ -16,6 +17,9 @@ permissions:
 jobs:
   build-installer:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        arch: [x64, arm64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,14 +42,14 @@ jobs:
           dotnet build WinNutCPlus.Avalonia.slnx --no-restore -c Release
           dotnet test WinNutCPlus.Core.Tests/WinNutCPlus.Core.Tests.csproj --no-build -c Release
 
-      - name: Publish self-contained win-x64
+      - name: Publish self-contained win-${{ matrix.arch }}
         working-directory: WinNUT.Avalonia
         run: >
           dotnet publish src/WinNutCPlus.App/WinNutCPlus.App.csproj
-          -c Release -r win-x64 --self-contained true
+          -c Release -r win-${{ matrix.arch }} --self-contained true
           -p:PublishSingleFile=false
           -p:Version=${{ steps.get-ver.outputs.VER }}
-          -o publish/win-x64
+          -o publish/win-${{ matrix.arch }}
 
       - name: Install Inno Setup
         run: choco install innosetup --no-progress -y
@@ -55,14 +59,15 @@ jobs:
         run: >
           & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe"
           /DMyAppVersion=${{ steps.get-ver.outputs.VER }}
+          /DMyAppArch=${{ matrix.arch }}
           winnutcplus.iss
         shell: pwsh
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}
-          path: WinNUT.Avalonia/installer/Output/WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}.exe
+          name: WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}-${{ matrix.arch }}
+          path: WinNUT.Avalonia/installer/Output/WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}-${{ matrix.arch }}.exe
           if-no-files-found: error
 
       - name: Attach installer to the release
@@ -70,4 +75,4 @@ jobs:
         with:
           fail_on_unmatched_files: true
           files: |
-            WinNUT.Avalonia/installer/Output/WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}.exe
+            WinNUT.Avalonia/installer/Output/WinNutCPlus-Setup-${{ steps.get-ver.outputs.VER }}-${{ matrix.arch }}.exe

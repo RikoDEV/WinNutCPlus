@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using Octokit;
 using WinNutCPlus.Core.Logging;
 
@@ -52,7 +53,7 @@ public sealed class UpdateChecker
                 return;
             }
 
-            var asset = match.Assets.FirstOrDefault(a => a.Name.EndsWith(".exe", StringComparison.OrdinalIgnoreCase));
+            var asset = SelectInstallerAsset(match.Assets, RuntimeInformation.ProcessArchitecture);
 
             UpdateCheckCompleted?.Invoke(new UpdateCheckResult { LatestRelease = match, LatestReleaseAsset = asset });
         }
@@ -61,6 +62,22 @@ public sealed class UpdateChecker
             _logFile.LogException(ex, this);
             UpdateCheckCompleted?.Invoke(new UpdateCheckResult { Error = ex });
         }
+    }
+
+    /// <summary>
+    /// Picks the installer matching the running process's architecture (the release ships one
+    /// per architecture, e.g. "WinNutCPlus-Setup-1.2.3-x64.exe" / "...-arm64.exe" — see
+    /// winnutcplus.iss). Falls back to the first ".exe" asset found for older releases that only
+    /// ever shipped a single, unsuffixed installer. Takes the architecture as a parameter (rather
+    /// than reading RuntimeInformation.ProcessArchitecture itself) so it's testable.
+    /// </summary>
+    internal static ReleaseAsset? SelectInstallerAsset(IReadOnlyList<ReleaseAsset> assets, Architecture processArchitecture)
+    {
+        var archToken = processArchitecture == Architecture.Arm64 ? "arm64" : "x64";
+
+        return assets.FirstOrDefault(a => a.Name.EndsWith(".exe", StringComparison.OrdinalIgnoreCase)
+                && a.Name.Contains(archToken, StringComparison.OrdinalIgnoreCase))
+            ?? assets.FirstOrDefault(a => a.Name.EndsWith(".exe", StringComparison.OrdinalIgnoreCase));
     }
 
     public async Task DownloadUpdateAsync(ReleaseAsset asset, CancellationToken cancellationToken = default)

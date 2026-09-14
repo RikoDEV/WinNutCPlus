@@ -12,9 +12,9 @@
     <Product>WinNutCPlus</Product>
     <AssemblyTitle>WinNutCPlus</AssemblyTitle>
     <Company>RikoDEV</Company>
-    <!-- Only applies to self-contained `dotnet publish` (installer builds); a plain build/run
-         is unaffected. Cuts unused BCL and Avalonia cross-platform backend (X11/macOS/Vulkan)
-         assemblies out of the win-x64 install. -->
+    <!-- Only applies to self-contained `dotnet publish` (installer builds, win-x64 or
+         win-arm64); a plain build/run is unaffected. Cuts unused BCL and Avalonia
+         cross-platform backend (X11/macOS/Vulkan) assemblies out of the install. -->
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>partial</TrimMode>
   </PropertyGroup>
