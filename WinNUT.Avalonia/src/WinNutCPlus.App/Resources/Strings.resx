@@ -26,6 +26,7 @@
   <data name="MenuConnect" xml:space="preserve"><value>Connect</value></data>
   <data name="MenuDisconnect" xml:space="preserve"><value>Disconnect</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>Settings...</value></data>
+  <data name="PreferencesWindowTitle" xml:space="preserve"><value>WinNutCPlus Preferences</value></data>
   <data name="MenuVariables" xml:space="preserve"><value>UPS Variable...</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>About...</value></data>
   <data name="MenuExit" xml:space="preserve"><value>Exit</value></data>

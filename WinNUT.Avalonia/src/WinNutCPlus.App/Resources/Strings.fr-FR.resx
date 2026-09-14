@@ -8,6 +8,7 @@
   <data name="MenuConnect" xml:space="preserve"><value>Connecter</value></data>
   <data name="MenuDisconnect" xml:space="preserve"><value>Déconnecter</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>Réglages...</value></data>
+  <data name="PreferencesWindowTitle" xml:space="preserve"><value>Réglages de WinNutCPlus</value></data>
   <data name="MenuVariables" xml:space="preserve"><value>Variable de l'UPS...</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>A Propos...</value></data>
   <data name="MenuExit" xml:space="preserve"><value>Quitter</value></data>

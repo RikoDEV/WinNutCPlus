@@ -8,6 +8,7 @@
   <data name="MenuConnect" xml:space="preserve"><value>Підключитися</value></data>
   <data name="MenuDisconnect" xml:space="preserve"><value>Відключитись</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>Налаштування...</value></data>
+  <data name="PreferencesWindowTitle" xml:space="preserve"><value>Налаштування WinNutCPlus</value></data>
   <data name="MenuVariables" xml:space="preserve"><value>Змінні ДБЖ...</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>Про додаток...</value></data>
   <data name="MenuExit" xml:space="preserve"><value>Вихід</value></data>

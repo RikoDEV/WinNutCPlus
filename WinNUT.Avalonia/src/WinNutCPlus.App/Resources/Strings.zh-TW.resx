@@ -8,6 +8,7 @@
   <data name="MenuConnect" xml:space="preserve"><value>連線</value></data>
   <data name="MenuDisconnect" xml:space="preserve"><value>中斷連線</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>設定...</value></data>
+  <data name="PreferencesWindowTitle" xml:space="preserve"><value>WinNutCPlus 設定</value></data>
   <data name="MenuVariables" xml:space="preserve"><value>UPS 變數...</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>關於...</value></data>
   <data name="MenuExit" xml:space="preserve"><value>離開</value></data>

@@ -11,7 +11,7 @@
         Icon="avares://WinNutCPlus/Assets/Icons/WinNut.ico"
         x:Class="WinNutCPlus.App.Views.PreferencesWindow"
         x:DataType="vm:PreferencesViewModel"
-        Title="WinNutCPlus Preferences">
+        Title="{loc:Loc PreferencesWindowTitle}">
 
     <Design.DataContext>
         <vm:PreferencesViewModel />

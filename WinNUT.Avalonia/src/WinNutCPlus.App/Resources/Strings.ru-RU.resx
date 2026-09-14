@@ -8,6 +8,7 @@
   <data name="MenuConnect" xml:space="preserve"><value>Подключиться</value></data>
   <data name="MenuDisconnect" xml:space="preserve"><value>Отключиться</value></data>
   <data name="MenuSettings" xml:space="preserve"><value>Настройки...</value></data>
+  <data name="PreferencesWindowTitle" xml:space="preserve"><value>Настройки WinNutCPlus</value></data>
   <data name="MenuVariables" xml:space="preserve"><value>Переменные ИБП...</value></data>
   <data name="MenuAbout" xml:space="preserve"><value>О программе...</value></data>
   <data name="MenuExit" xml:space="preserve"><value>Выход</value></data>
