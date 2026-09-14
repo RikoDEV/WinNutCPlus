@@ -66,11 +66,19 @@ public partial class App : Application
 
             if (_host.Settings.MinimizeOnStart && _host.Settings.MinimizeToTray)
             {
-                mainWindow.Opened += (_, _) =>
+                // Opened fires again every time Show() follows a Hide() (e.g. restoring from the
+                // tray), not just on the very first show — so this must unsubscribe itself after
+                // running once. Without that, clicking the tray icon to restore the window
+                // re-triggers this same handler a few ms later and hides it right back, making
+                // the window appear to "blink and close" on every click.
+                EventHandler? onOpened = null;
+                onOpened = (_, _) =>
                 {
+                    mainWindow.Opened -= onOpened;
                     mainWindow.Hide();
                     _trayIcon!.IsVisible = true;
                 };
+                mainWindow.Opened += onOpened;
             }
 
             desktop.ShutdownRequested += async (_, _) =>
