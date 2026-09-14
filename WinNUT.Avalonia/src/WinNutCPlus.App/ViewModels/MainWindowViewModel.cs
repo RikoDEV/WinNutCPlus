@@ -329,7 +329,10 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
 
     private void ResetLiveValues()
     {
-        _wasOnLine = null;
+        // Deliberately NOT resetting _wasOnLine here: a disconnect/reconnect (even a brief one,
+        // e.g. network gear without its own UPS dropping right as a real power outage starts)
+        // shouldn't wipe the power-state baseline — otherwise the very reconnect that follows a
+        // real outage can swallow the power-lost toast right when it matters most.
         InputVoltage = 0;
         InputFrequency = 0;
         OutputVoltage = 0;
