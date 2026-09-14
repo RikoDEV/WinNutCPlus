@@ -52,6 +52,8 @@
   <data name="ShutdownImmediateButton" xml:space="preserve"><value>Немедленное выключение</value></data>
 
   <data name="MainSectionLiveReadings" xml:space="preserve"><value>Текущие показания</value></data>
+  <data name="MainSectionHistory" xml:space="preserve"><value>История</value></data>
+  <data name="MainHistoryCollecting" xml:space="preserve"><value>Сбор данных…</value></data>
   <data name="MainLabelManufacturer" xml:space="preserve"><value>Производитель</value></data>
   <data name="MainLabelModel" xml:space="preserve"><value>Модель</value></data>
   <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Время работы от батареи</value></data>

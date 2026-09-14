@@ -5,8 +5,8 @@
         xmlns:loc="using:WinNutCPlus.App.Localization"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="760" d:DesignHeight="600"
-        Width="760" Height="600" MinWidth="620" MinHeight="480"
+        mc:Ignorable="d" d:DesignWidth="760" d:DesignHeight="760"
+        Width="760" Height="760" MinWidth="620" MinHeight="620"
         x:Class="WinNutCPlus.App.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Background="{DynamicResource WindowBgBrush}"
@@ -66,26 +66,54 @@
             </UniformGrid>
         </Border>
 
-        <!-- Gauges card -->
-        <Border Classes="card">
-            <DockPanel>
-                <TextBlock DockPanel.Dock="Top" Text="{loc:Loc MainSectionLiveReadings}" Classes="h2" Margin="0,0,0,8" />
-                <UniformGrid Columns="3" Rows="2">
-                    <c:UpsGaugeControl Label="{loc:Loc GaugeInputV}" Value="{Binding InputVoltage}" Unit="V"
-                                        MinValue="{Binding InVMin}" MaxValue="{Binding InVMax}" />
-                    <c:UpsGaugeControl Label="{loc:Loc GaugeInputHz}" Value="{Binding InputFrequency}" Unit="Hz"
-                                        MinValue="{Binding InFMin}" MaxValue="{Binding InFMax}" />
-                    <c:UpsGaugeControl Label="{loc:Loc GaugeOutputV}" Value="{Binding OutputVoltage}" Unit="V"
-                                        MinValue="{Binding OutVMin}" MaxValue="{Binding OutVMax}" />
-                    <c:UpsGaugeControl Label="{loc:Loc GaugeBattery}" Value="{Binding BatteryCharge}" Unit="%"
-                                        MinValue="0" MaxValue="100" />
-                    <c:UpsGaugeControl Label="{loc:Loc GaugeLoadPower}" Value="{Binding Load}" Value2="{Binding OutputPower}"
-                                        Unit="%" Unit2="W" MinValue="0" MaxValue="100" />
-                    <c:UpsGaugeControl Label="{loc:Loc GaugeBatteryV}" Value="{Binding BatteryVoltage}" Unit="V"
-                                        MinValue="{Binding BattVMin}" MaxValue="{Binding BattVMax}" />
-                </UniformGrid>
-            </DockPanel>
-        </Border>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid RowDefinitions="Auto,16,Auto">
+
+            <!-- Gauges card -->
+            <Border Grid.Row="0" Classes="card">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="{loc:Loc MainSectionLiveReadings}" Classes="h2" Margin="0,0,0,8" />
+                    <UniformGrid Columns="3" Rows="2">
+                        <c:UpsGaugeControl Label="{loc:Loc GaugeInputV}" Value="{Binding InputVoltage}" Unit="V"
+                                            MinValue="{Binding InVMin}" MaxValue="{Binding InVMax}" />
+                        <c:UpsGaugeControl Label="{loc:Loc GaugeInputHz}" Value="{Binding InputFrequency}" Unit="Hz"
+                                            MinValue="{Binding InFMin}" MaxValue="{Binding InFMax}" />
+                        <c:UpsGaugeControl Label="{loc:Loc GaugeOutputV}" Value="{Binding OutputVoltage}" Unit="V"
+                                            MinValue="{Binding OutVMin}" MaxValue="{Binding OutVMax}" />
+                        <c:UpsGaugeControl Label="{loc:Loc GaugeBattery}" Value="{Binding BatteryCharge}" Unit="%"
+                                            MinValue="0" MaxValue="100" />
+                        <c:UpsGaugeControl Label="{loc:Loc GaugeLoadPower}" Value="{Binding Load}" Value2="{Binding OutputPower}"
+                                            Unit="%" Unit2="W" MinValue="0" MaxValue="100" />
+                        <c:UpsGaugeControl Label="{loc:Loc GaugeBatteryV}" Value="{Binding BatteryVoltage}" Unit="V"
+                                            MinValue="{Binding BattVMin}" MaxValue="{Binding BattVMax}" />
+                    </UniformGrid>
+                </DockPanel>
+            </Border>
+
+            <!-- History chart card -->
+            <Border Grid.Row="2" Classes="card">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="{loc:Loc MainSectionHistory}" Classes="h2" Margin="0,0,0,8" />
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="18" Margin="0,10,0,0">
+                        <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+                            <Ellipse Width="8" Height="8" Fill="#4F7CFF" />
+                            <TextBlock Text="{loc:Loc GaugeLoadPower}" Classes="subtitle" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+                            <Ellipse Width="8" Height="8" Fill="#22C55E" />
+                            <TextBlock Text="{loc:Loc GaugeBattery}" Classes="subtitle" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="6" VerticalAlignment="Center">
+                            <Ellipse Width="8" Height="8" Fill="#F59E0B" />
+                            <TextBlock Text="{loc:Loc GaugeInputV}" Classes="subtitle" />
+                        </StackPanel>
+                    </StackPanel>
+                    <c:UpsHistoryChartControl Samples="{Binding History}" Height="180"
+                                               InVMin="{Binding InVMin}" InVMax="{Binding InVMax}" />
+                </DockPanel>
+            </Border>
+        </Grid>
+        </ScrollViewer>
     </DockPanel>
 
 </Window>

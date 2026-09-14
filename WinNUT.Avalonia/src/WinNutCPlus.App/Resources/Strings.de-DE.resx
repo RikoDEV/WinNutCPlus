@@ -52,6 +52,8 @@
   <data name="ShutdownImmediateButton" xml:space="preserve"><value>Sofortiges Herunterfahren</value></data>
 
   <data name="MainSectionLiveReadings" xml:space="preserve"><value>Live-Werte</value></data>
+  <data name="MainSectionHistory" xml:space="preserve"><value>Verlauf</value></data>
+  <data name="MainHistoryCollecting" xml:space="preserve"><value>Daten werden gesammelt…</value></data>
   <data name="MainLabelManufacturer" xml:space="preserve"><value>Hersteller</value></data>
   <data name="MainLabelModel" xml:space="preserve"><value>Modell</value></data>
   <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Akkulaufzeit</value></data>

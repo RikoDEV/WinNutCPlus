@@ -52,6 +52,8 @@
   <data name="ShutdownImmediateButton" xml:space="preserve"><value>Негайне вимкнення</value></data>
 
   <data name="MainSectionLiveReadings" xml:space="preserve"><value>Поточні показники</value></data>
+  <data name="MainSectionHistory" xml:space="preserve"><value>Історія</value></data>
+  <data name="MainHistoryCollecting" xml:space="preserve"><value>Збір даних…</value></data>
   <data name="MainLabelManufacturer" xml:space="preserve"><value>Виробник</value></data>
   <data name="MainLabelModel" xml:space="preserve"><value>Модель</value></data>
   <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Час роботи від батареї</value></data>

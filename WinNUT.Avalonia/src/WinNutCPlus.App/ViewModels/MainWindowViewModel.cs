@@ -3,6 +3,7 @@ using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WinNutCPlus.App.Localization;
+using WinNutCPlus.App.Models;
 using WinNutCPlus.App.Services;
 using WinNutCPlus.Core.Device;
 using WinNutCPlus.Core.Logging;
@@ -15,6 +16,13 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
     private readonly AppHost _host;
     private UpsDevice? _device;
     private bool? _wasOnLine;
+
+    // Rolling buffer feeding the history chart below the gauges — capped rather than kept for
+    // the app's entire running time, so a long-lived session doesn't grow this unbounded.
+    private const int HistoryCapacity = 3600;
+    private readonly List<HistorySample> _historyBuffer = new();
+
+    [ObservableProperty] private IReadOnlyList<HistorySample> _history = Array.Empty<HistorySample>();
 
     public AppHost Host => _host;
     public UpsDevice? CurrentDevice => _device;
@@ -288,6 +296,8 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
             }
             _wasOnLine = onLine;
 
+            AppendHistorySample(v.Load, v.BattCharge, v.InputVoltage);
+
             var battBits = v.BattCharge switch
             {
                 >= 76 and <= 100 => AppIconIdx.IDX_BATT_100,
@@ -304,6 +314,17 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
             var baseBits = (onLine ? AppIconIdx.IDX_OL : 0) | battBits;
             UpdateIcon(baseBits);
         });
+    }
+
+    private void AppendHistorySample(double load, double batteryCharge, double inputVoltage)
+    {
+        _historyBuffer.Add(new HistorySample(DateTime.Now, load, batteryCharge, inputVoltage));
+        if (_historyBuffer.Count > HistoryCapacity)
+        {
+            _historyBuffer.RemoveAt(0);
+        }
+
+        History = _historyBuffer.ToArray();
     }
 
     private void ResetLiveValues()

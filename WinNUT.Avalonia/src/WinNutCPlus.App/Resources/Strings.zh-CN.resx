@@ -52,6 +52,8 @@
   <data name="ShutdownImmediateButton" xml:space="preserve"><value>立即关机</value></data>
 
   <data name="MainSectionLiveReadings" xml:space="preserve"><value>实时数据</value></data>
+  <data name="MainSectionHistory" xml:space="preserve"><value>历史记录</value></data>
+  <data name="MainHistoryCollecting" xml:space="preserve"><value>正在收集数据…</value></data>
   <data name="MainLabelManufacturer" xml:space="preserve"><value>制造商</value></data>
   <data name="MainLabelModel" xml:space="preserve"><value>型号</value></data>
   <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>电池续航时间</value></data>

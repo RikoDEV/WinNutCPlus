@@ -70,6 +70,8 @@
   <data name="ShutdownImmediateButton" xml:space="preserve"><value>Immediate Shutdown</value></data>
 
   <data name="MainSectionLiveReadings" xml:space="preserve"><value>Live Readings</value></data>
+  <data name="MainSectionHistory" xml:space="preserve"><value>History</value></data>
+  <data name="MainHistoryCollecting" xml:space="preserve"><value>Collecting data…</value></data>
   <data name="MainLabelManufacturer" xml:space="preserve"><value>Manufacturer</value></data>
   <data name="MainLabelModel" xml:space="preserve"><value>Model</value></data>
   <data name="MainLabelBatteryRuntime" xml:space="preserve"><value>Battery Runtime</value></data>
