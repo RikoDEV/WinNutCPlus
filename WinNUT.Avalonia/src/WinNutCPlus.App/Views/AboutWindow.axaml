@@ -21,7 +21,6 @@
             <TextBlock Text="{loc:Loc AboutCopyright3}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Classes="subtitle" FontSize="11" />
         </StackPanel>
         <Button Name="GitHubLink" Classes="secondary" Content="github.com/RikoDEV/WinNutCPlus" HorizontalAlignment="Center" Margin="0,6,0,0" />
-        <Button Name="OkButton" Classes="primary" Content="{loc:Loc ButtonOk}" HorizontalAlignment="Center" Margin="0,2,0,0" />
     </StackPanel>
 
 </Window>

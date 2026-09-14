@@ -15,7 +15,5 @@ public partial class AboutWindow : Window
 
         this.FindControl<Button>("GitHubLink")!.Click += (_, _) =>
             Process.Start(new ProcessStartInfo("https://github.com/RikoDEV/WinNutCPlus") { UseShellExecute = true });
-
-        this.FindControl<Button>("OkButton")!.Click += (_, _) => Close();
     }
 }
