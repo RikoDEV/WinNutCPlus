@@ -28,8 +28,9 @@
             <TextBlock Grid.Row="1" Text="{Binding ReleaseName}" Classes="subtitle" TextWrapping="Wrap" />
 
             <Border Grid.Row="2" BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="1" CornerRadius="8">
-                <TextBox Text="{Binding ChangeLog}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap"
-                         Background="Transparent" BorderThickness="0" />
+                <ScrollViewer Padding="10">
+                    <ContentControl Name="ChangeLogHost" />
+                </ScrollViewer>
             </Border>
 
             <TextBlock Grid.Row="3" Text="{loc:Loc UpdateDownloading}" IsVisible="{Binding IsDownloading}" Classes="subtitle" />
