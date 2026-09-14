@@ -214,9 +214,9 @@
                         <StackPanel Spacing="4">
                             <TextBlock Text="{loc:Loc FieldUpdateDelay}" Classes="field-label" />
                             <ComboBox SelectedIndex="{Binding AutoCheckDelay}" IsEnabled="{Binding CheckAtStart}" HorizontalAlignment="Left" Width="200">
-                                <ComboBoxItem Content="Daily" />
-                                <ComboBoxItem Content="Weekly" />
-                                <ComboBoxItem Content="Monthly" />
+                                <ComboBoxItem Content="{loc:Loc UpdateIntervalDaily}" />
+                                <ComboBoxItem Content="{loc:Loc UpdateIntervalWeekly}" />
+                                <ComboBoxItem Content="{loc:Loc UpdateIntervalMonthly}" />
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Spacing="4">

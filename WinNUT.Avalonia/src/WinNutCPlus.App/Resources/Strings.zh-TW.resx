@@ -108,6 +108,9 @@
   <data name="ThemeDark" xml:space="preserve"><value>深色</value></data>
   <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>在啟動時檢查更新</value></data>
   <data name="FieldUpdateDelay" xml:space="preserve"><value>每次檢查更新間隔</value></data>
+  <data name="UpdateIntervalDaily" xml:space="preserve"><value>每天</value></data>
+  <data name="UpdateIntervalWeekly" xml:space="preserve"><value>每週</value></data>
+  <data name="UpdateIntervalMonthly" xml:space="preserve"><value>每月</value></data>
   <data name="FieldUpdateBranch" xml:space="preserve"><value>版本</value></data>
 
   <data name="AboutDescription" xml:space="preserve"><value>用於 Network UPS Tools (NUT) 的 Windows 用戶端。</value></data>

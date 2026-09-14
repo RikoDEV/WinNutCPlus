@@ -108,6 +108,9 @@
   <data name="ThemeDark" xml:space="preserve"><value>Темна</value></data>
   <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>Перевіряти при запуску</value></data>
   <data name="FieldUpdateDelay" xml:space="preserve"><value>Затримка між перевірками</value></data>
+  <data name="UpdateIntervalDaily" xml:space="preserve"><value>Щодня</value></data>
+  <data name="UpdateIntervalWeekly" xml:space="preserve"><value>Щотижня</value></data>
+  <data name="UpdateIntervalMonthly" xml:space="preserve"><value>Щомісяця</value></data>
   <data name="FieldUpdateBranch" xml:space="preserve"><value>Стабільна чи налагоджувальна версія</value></data>
 
   <data name="AboutDescription" xml:space="preserve"><value>Windows-клієнт для Network UPS Tools (NUT).</value></data>

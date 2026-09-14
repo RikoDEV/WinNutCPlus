@@ -108,6 +108,9 @@
   <data name="ThemeDark" xml:space="preserve"><value>Ciemny</value></data>
   <data name="FieldCheckUpdateAtStart" xml:space="preserve"><value>Sprawdzaj aktualizacje przy starcie</value></data>
   <data name="FieldUpdateDelay" xml:space="preserve"><value>Odstęp między sprawdzeniami</value></data>
+  <data name="UpdateIntervalDaily" xml:space="preserve"><value>Codziennie</value></data>
+  <data name="UpdateIntervalWeekly" xml:space="preserve"><value>Co tydzień</value></data>
+  <data name="UpdateIntervalMonthly" xml:space="preserve"><value>Co miesiąc</value></data>
   <data name="FieldUpdateBranch" xml:space="preserve"><value>Gałąź stabilna lub rozwojowa</value></data>
 
   <data name="AboutDescription" xml:space="preserve"><value>Klient Windows dla Network UPS Tools (NUT).</value></data>
