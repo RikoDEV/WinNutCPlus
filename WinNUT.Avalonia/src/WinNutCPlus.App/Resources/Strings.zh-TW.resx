@@ -29,6 +29,8 @@
   <data name="StatusNutError" xml:space="preserve"><value>NUT 錯誤：{0}</value></data>
   <data name="ToastConnected" xml:space="preserve"><value>已連線至 {0}</value></data>
   <data name="ToastImportedSettings" xml:space="preserve"><value>已從您先前的安裝匯入 {0} 項設定。</value></data>
+  <data name="ToastPowerLost" xml:space="preserve"><value>市電中斷，正在使用電池供電。</value></data>
+  <data name="ToastPowerRestored" xml:space="preserve"><value>市電已恢復。</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>連線</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>中斷連線</value></data>

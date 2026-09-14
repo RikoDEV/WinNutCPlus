@@ -14,6 +14,7 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
 {
     private readonly AppHost _host;
     private UpsDevice? _device;
+    private bool? _wasOnLine;
 
     public AppHost Host => _host;
     public UpsDevice? CurrentDevice => _device;
@@ -281,6 +282,12 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
             var statusText = onLine ? Localize.Get("StatusOnLine") : Localize.Format("StatusOnBattery", v.BattCharge);
             SetStatus(statusText, onLine ? StatusOkBrush : StatusWarnBrush);
 
+            if (_wasOnLine is { } wasOnLine && wasOnLine != onLine)
+            {
+                ToastService.Send("WinNutCPlus", onLine ? Localize.Get("ToastPowerRestored") : Localize.Get("ToastPowerLost"));
+            }
+            _wasOnLine = onLine;
+
             var battBits = v.BattCharge switch
             {
                 >= 76 and <= 100 => AppIconIdx.IDX_BATT_100,
@@ -301,6 +308,7 @@ public partial class MainWindowViewModel : ViewModelBase, IDisposable
 
     private void ResetLiveValues()
     {
+        _wasOnLine = null;
         InputVoltage = 0;
         InputFrequency = 0;
         OutputVoltage = 0;

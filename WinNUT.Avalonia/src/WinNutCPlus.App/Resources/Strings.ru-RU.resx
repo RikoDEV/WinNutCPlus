@@ -29,6 +29,8 @@
   <data name="StatusNutError" xml:space="preserve"><value>Ошибка NUT: {0}</value></data>
   <data name="ToastConnected" xml:space="preserve"><value>Подключено к {0}</value></data>
   <data name="ToastImportedSettings" xml:space="preserve"><value>Импортировано {0} настроек из предыдущей установки.</value></data>
+  <data name="ToastPowerLost" xml:space="preserve"><value>Пропало питание — работа от батареи.</value></data>
+  <data name="ToastPowerRestored" xml:space="preserve"><value>Питание восстановлено.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Подключиться</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Отключиться</value></data>

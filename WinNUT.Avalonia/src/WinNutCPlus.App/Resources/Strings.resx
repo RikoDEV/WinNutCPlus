@@ -47,6 +47,8 @@
   <data name="StatusNutError" xml:space="preserve"><value>NUT error: {0}</value></data>
   <data name="ToastConnected" xml:space="preserve"><value>Connected to {0}</value></data>
   <data name="ToastImportedSettings" xml:space="preserve"><value>Imported {0} settings from your previous installation.</value></data>
+  <data name="ToastPowerLost" xml:space="preserve"><value>Power lost — running on battery.</value></data>
+  <data name="ToastPowerRestored" xml:space="preserve"><value>Power restored.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Connect</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Disconnect</value></data>

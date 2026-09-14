@@ -29,6 +29,8 @@
   <data name="StatusNutError" xml:space="preserve"><value>Błąd NUT: {0}</value></data>
   <data name="ToastConnected" xml:space="preserve"><value>Połączono z {0}</value></data>
   <data name="ToastImportedSettings" xml:space="preserve"><value>Zaimportowano {0} ustawień z poprzedniej instalacji.</value></data>
+  <data name="ToastPowerLost" xml:space="preserve"><value>Zanik zasilania — praca na baterii.</value></data>
+  <data name="ToastPowerRestored" xml:space="preserve"><value>Zasilanie przywrócone.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Połącz</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Rozłącz</value></data>

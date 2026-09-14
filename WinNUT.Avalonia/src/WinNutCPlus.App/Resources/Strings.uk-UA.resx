@@ -29,6 +29,8 @@
   <data name="StatusNutError" xml:space="preserve"><value>Помилка NUT: {0}</value></data>
   <data name="ToastConnected" xml:space="preserve"><value>Підключено до {0}</value></data>
   <data name="ToastImportedSettings" xml:space="preserve"><value>Імпортовано {0} налаштувань з попередньої інсталяції.</value></data>
+  <data name="ToastPowerLost" xml:space="preserve"><value>Зникло живлення — робота від батареї.</value></data>
+  <data name="ToastPowerRestored" xml:space="preserve"><value>Живлення відновлено.</value></data>
 
   <data name="ButtonConnect" xml:space="preserve"><value>Підключитися</value></data>
   <data name="ButtonDisconnect" xml:space="preserve"><value>Відключитись</value></data>
