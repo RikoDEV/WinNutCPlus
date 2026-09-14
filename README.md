@@ -1,5 +1,6 @@
-<img width="1742" height="1007" alt="image" src="https://github.com/user-attachments/assets/5bf826d1-c37b-4682-a0f5-2900403093fd" />
+<img width="2559" height="1439" alt="WinNutCPlus_r9u7Do7I0P" src="https://github.com/user-attachments/assets/5082a01b-7cdd-4248-994b-af6a8fbc92a8" />
 
+___
 
 WinNutCPlus is a modern Windows desktop client for connecting to a [Network UPS Tools](https://networkupstools.org/) (NUT) monitoring server. It's a full rewrite of the original WinNUT-Client on Avalonia UI + .NET 8.
 
