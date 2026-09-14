@@ -335,7 +335,8 @@ public partial class PreferencesViewModel : ViewModelBase
 
         if (enabled)
         {
-            key.SetValue("WinNutCPlus", Environment.ProcessPath ?? AppContext.BaseDirectory);
+            var exePath = Environment.ProcessPath ?? AppContext.BaseDirectory;
+            key.SetValue("WinNutCPlus", $"\"{exePath}\"");
         }
         else
         {

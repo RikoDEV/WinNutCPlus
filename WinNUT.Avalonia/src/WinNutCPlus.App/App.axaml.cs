@@ -64,6 +64,15 @@ public partial class App : Application
             SetupShutdownCoordinator(mainViewModel);
             SetupUpdateChecker(mainViewModel);
 
+            if (_host.Settings.MinimizeOnStart && _host.Settings.MinimizeToTray)
+            {
+                mainWindow.Opened += (_, _) =>
+                {
+                    mainWindow.Hide();
+                    _trayIcon!.IsVisible = true;
+                };
+            }
+
             desktop.ShutdownRequested += async (_, _) =>
             {
                 if (mainViewModel.IsConnected)
