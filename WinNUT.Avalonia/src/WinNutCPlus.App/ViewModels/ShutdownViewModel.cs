@@ -70,11 +70,25 @@ public partial class ShutdownViewModel : ViewModelBase, IDisposable
             _tickTimer.Stop();
             ProgressPercent = 100;
             UpdateDisplay(0);
-            CountdownExpired?.Invoke();
+            _ = ExpireAsync();
             return;
         }
 
         UpdateDisplay(remaining);
+    }
+
+    /// <summary>
+    /// Actually performs the shutdown/suspend/hibernate action and signals the window to close —
+    /// shared by both the countdown reaching zero and the manual "shut down now" button, so the
+    /// timer path can never again just close the window without ever running the OS action.
+    /// Dispatches CountdownExpired back to the UI thread explicitly since
+    /// ExecuteShutdownActionAsync's ConfigureAwait(false) can resume this continuation on a
+    /// thread-pool thread, and the window's Close() (wired to CountdownExpired) needs the UI thread.
+    /// </summary>
+    private async Task ExpireAsync()
+    {
+        await _coordinator.ExecuteShutdownActionAsync().ConfigureAwait(false);
+        Dispatcher.UIThread.Post(() => CountdownExpired?.Invoke());
     }
 
     private void UpdateDisplay(double remainingSeconds)
@@ -98,8 +112,7 @@ public partial class ShutdownViewModel : ViewModelBase, IDisposable
     private async Task ShutdownNowAsync()
     {
         _tickTimer.Stop();
-        await _coordinator.ExecuteShutdownActionAsync().ConfigureAwait(false);
-        CountdownExpired?.Invoke();
+        await ExpireAsync();
     }
 
     public void Dispose()
