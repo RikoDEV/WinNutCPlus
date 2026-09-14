@@ -25,13 +25,27 @@ public partial class App : Application
     {
         if (Current is not App app || app._mainWindow is null) return;
 
-        Dispatcher.UIThread.Post(() =>
+        Dispatcher.UIThread.Post(() => app.RestoreMainWindow(app._mainWindow));
+    }
+
+    /// <summary>
+    /// Shows the main window, (re-)establishing it as the desktop lifetime's MainWindow and
+    /// restoring normal close-quits-app behavior. Needed because a window started minimized to
+    /// tray (see OnFrameworkInitializationCompleted) is never assigned as MainWindow or shown in
+    /// the first place, so both must be set up here the first time it's actually requested.
+    /// </summary>
+    private void RestoreMainWindow(MainWindow mainWindow)
+    {
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            app._mainWindow.Show();
-            app._mainWindow.WindowState = WindowState.Normal;
-            app._mainWindow.Activate();
-            if (app._trayIcon is not null) app._trayIcon.IsVisible = false;
-        });
+            desktop.MainWindow ??= mainWindow;
+            desktop.ShutdownMode = ShutdownMode.OnLastWindowClose;
+        }
+
+        mainWindow.Show();
+        mainWindow.WindowState = WindowState.Normal;
+        mainWindow.Activate();
+        if (_trayIcon is not null) _trayIcon.IsVisible = false;
     }
 
     public override void Initialize()
@@ -58,7 +72,6 @@ public partial class App : Application
             var mainViewModel = new MainWindowViewModel(_host);
             var mainWindow = new MainWindow { DataContext = mainViewModel };
             _mainWindow = mainWindow;
-            desktop.MainWindow = mainWindow;
 
             SetupTrayIcon(mainWindow, mainViewModel);
             SetupShutdownCoordinator(mainViewModel);
@@ -66,19 +79,19 @@ public partial class App : Application
 
             if (_host.Settings.MinimizeOnStart && _host.Settings.MinimizeToTray)
             {
-                // Opened fires again every time Show() follows a Hide() (e.g. restoring from the
-                // tray), not just on the very first show — so this must unsubscribe itself after
-                // running once. Without that, clicking the tray icon to restore the window
-                // re-triggers this same handler a few ms later and hides it right back, making
-                // the window appear to "blink and close" on every click.
-                EventHandler? onOpened = null;
-                onOpened = (_, _) =>
-                {
-                    mainWindow.Opened -= onOpened;
-                    mainWindow.Hide();
-                    _trayIcon!.IsVisible = true;
-                };
-                mainWindow.Opened += onOpened;
+                // Skip ever assigning/showing the window instead of showing then hiding it: the
+                // classic desktop lifetime always calls Show() on whatever's assigned to
+                // MainWindow, and hiding it back afterward (whether from Opened or a WindowState
+                // handler) still flashes it visible for a frame first. Stay alive with no window
+                // open — OnExplicitShutdown so it doesn't immediately quit with zero windows
+                // shown — until the user actually asks for one; RestoreMainWindow() assigns
+                // MainWindow and puts ShutdownMode back to normal at that point.
+                desktop.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                _trayIcon!.IsVisible = true;
+            }
+            else
+            {
+                desktop.MainWindow = mainWindow;
             }
 
             desktop.ShutdownRequested += async (_, _) =>
@@ -256,13 +269,7 @@ public partial class App : Application
         mainWindow.Icon = IconProvider.BaseAppIcon;
 
         var showItem = new NativeMenuItem(Localize.Get("MainShowWindow"));
-        showItem.Click += (_, _) =>
-        {
-            mainWindow.Show();
-            mainWindow.WindowState = WindowState.Normal;
-            mainWindow.Activate();
-            _trayIcon!.IsVisible = false;
-        };
+        showItem.Click += (_, _) => RestoreMainWindow(mainWindow);
 
         var connectItem = new NativeMenuItem(Localize.Get("MenuConnect"));
         connectItem.Click += async (_, _) => await viewModel.ConnectCommand.ExecuteAsync(null);
@@ -324,13 +331,7 @@ public partial class App : Application
             },
         };
 
-        _trayIcon.Clicked += (_, _) =>
-        {
-            mainWindow.Show();
-            mainWindow.WindowState = WindowState.Normal;
-            mainWindow.Activate();
-            _trayIcon!.IsVisible = false;
-        };
+        _trayIcon.Clicked += (_, _) => RestoreMainWindow(mainWindow);
 
         mainWindow.PropertyChanged += (_, e) =>
         {
